@@ -8,7 +8,7 @@
   <p>telephone: {{ client.telephone }}</p>
 
   {% for property in properties %}
-    <p>{{ property.address }}</p>
+    <p><a href="{% url 'property_detail' pk=property.pk %}">{{ property.address }}</a></p>
   {% endfor %}
 
   <a href="{% url 'property_new' pk=client.pk %}">add a property for this client</a>

@@ -5,3 +5,6 @@ admin.site.register(Client)
 
 from .models import Property
 admin.site.register(Property)
+
+from .models import Booking
+admin.site.register(Booking)

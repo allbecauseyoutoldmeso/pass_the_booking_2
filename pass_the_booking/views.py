@@ -1,6 +1,6 @@
-from .models import Client, Property
+from .models import Client, Property, Booking
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import ClientForm, PropertyForm
+from .forms import ClientForm, PropertyForm, BookingForm
 
 def client_list(request):
     clients = Client.objects.order_by('name')
@@ -41,6 +41,23 @@ def properties(request):
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
     return render(request, 'pass_the_booking/property_detail.html', {'property': property })
+
+def booking_detail(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    return render(request, 'pass_the_booking/booking_detail.html', {'booking': booking })
+
+def booking_new(request, pk):
+    property = get_object_or_404(Property, pk=pk)
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.property = property
+            booking.save()
+            return redirect('booking_detail', pk=booking.pk)
+    else:
+        form = BookingForm()
+        return render(request, 'pass_the_booking/booking_edit.html', { 'form': form, 'property': property })
 
 def property_new(request, pk):
     client = get_object_or_404(Client, pk=pk)

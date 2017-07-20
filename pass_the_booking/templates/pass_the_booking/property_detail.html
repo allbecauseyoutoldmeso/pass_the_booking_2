@@ -7,5 +7,6 @@
   <p>{{ property.bedrooms }} bedrooms</p>
   <p>internet?  {% if property.internet == True %}yes{% else %}no{% endif %}</p>
   <p>host: <a href="{% url 'client_detail' pk=property.client.pk %}">{{ property.client.name }}</a></p>
+  <a href="{% url 'booking_new' pk=property.pk %}">add a booking for this property</a>
 
 {% endblock %}
