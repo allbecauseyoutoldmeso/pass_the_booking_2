@@ -1,0 +1,9 @@
+{% extends 'pass_the_booking/base.html' %}
+
+{% block content %}
+        <p>{{ client.name }}</p>
+        <p>D.O.B: {{ client.dob }}</p>
+        <p>email: {{ client.email }}</p>
+        <p>telephone: {{ client.telephone|linebreaksbr }}</p>
+    </div>
+{% endblock %}
