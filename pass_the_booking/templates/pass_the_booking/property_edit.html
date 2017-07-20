@@ -1,0 +1,12 @@
+{% extends 'pass_the_booking/base.html' %}
+
+{% block content %}
+
+   <p>add a new property for {{ client.name }}</p>
+
+    <form method='post'>{% csrf_token %}
+        {{ form.as_p }}
+        <button type='submit'>save</button>
+    </form>
+
+{% endblock %}
