@@ -7,5 +7,10 @@ class Client(models.Model):
     dob = models.DateField()
     telephone = models.CharField(max_length=200)
 
-    def add_client(self):
-        self.save()
+class Property(models.Model):
+
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    address = models.TextField()
+    price = models.IntegerField()
+    bedrooms = models.IntegerField()
+    internet = models.BooleanField()
