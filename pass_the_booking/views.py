@@ -20,3 +20,15 @@ def client_new(request):
     else:
         form = ClientForm()
         return render(request, 'pass_the_booking/client_edit.html', {'form': form})
+
+def client_edit(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    if request.method == "POST":
+        form = ClientForm(request.POST, instance=client)
+        if form.is_valid():
+            client = form.save(commit=False)
+            client.save()
+            return redirect('client_detail', pk=client.pk)
+    else:
+        form = ClientForm(instance=client)
+        return render(request, 'pass_the_booking/client_edit.html', {'form': form})
