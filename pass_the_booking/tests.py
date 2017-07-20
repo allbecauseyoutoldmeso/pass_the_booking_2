@@ -5,6 +5,7 @@ import datetime
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
 
+
 class ClientTestCase(TestCase):
     def setUp(self):
         Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
@@ -16,10 +17,12 @@ class ClientTestCase(TestCase):
         self.assertEqual(kate.email, 'kate@kate.com')
         self.assertEqual(kate.telephone, '01234123123')
 
+
 class PropertyTestCase(TestCase):
     def setUp(self):
         kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
         Property.objects.create(client = kate, address='123 langthorne road', price=29, bedrooms=2, internet=False)
+        Booking.objects.create(property = Property.objects.get(address='123 langthorne road'), check_in = '2017-10-12', check_out = '2017-10-14', guest_name = 'sally', guest_email = 'sally@sally.com')
 
     def test_property_has_relevant_details(self):
         """Properties are stored with relevant information"""
@@ -28,6 +31,12 @@ class PropertyTestCase(TestCase):
         self.assertEqual(langthorne_road.price, 29)
         self.assertEqual(langthorne_road.bedrooms, 2)
         self.assertEqual(langthorne_road.internet, False)
+
+    def test_unavailable_dates(self):
+        """Method returns list of unavailable dates"""
+        langthorne_road = Property.objects.get(address='123 langthorne road')
+        self.assertEqual(langthorne_road.unavailable_dates(), [datetime.date(2017, 10, 12), datetime.date(2017, 10, 13)])
+
 
 class BookingTestCase(TestCase):
     def setUp(self):

@@ -1,4 +1,6 @@
 from django.db import models
+import datetime
+from datetime import timedelta
 
 class Client(models.Model):
 
@@ -14,6 +16,14 @@ class Property(models.Model):
     price = models.IntegerField()
     bedrooms = models.IntegerField()
     internet = models.BooleanField()
+
+    def unavailable_dates(self):
+        booked_dates = []
+        for booking in self.booking_set.all():
+            delta = booking.check_out - booking.check_in
+            for i in range(delta.days):
+                booked_dates.append(booking.check_in + timedelta(i))
+        return booked_dates
 
 class Booking(models.Model):
 
