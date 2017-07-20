@@ -37,3 +37,7 @@ def client_edit(request, pk):
 def properties(request):
     properties = Property.objects.order_by('client')
     return render(request, 'pass_the_booking/properties.html', {'properties': properties })
+
+def property_detail(request, pk):
+    property = get_object_or_404(Property, pk=pk)
+    return render(request, 'pass_the_booking/property_detail.html', {'property': property })

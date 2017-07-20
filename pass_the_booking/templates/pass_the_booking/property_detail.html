@@ -1,0 +1,11 @@
+{% extends 'pass_the_booking/base.html' %}
+
+{% block content %}
+
+  <p>address: {{ property.address }}</p>
+  <p>£{{ property.price }} a night</p>
+  <p>{{ property.bedrooms }} bedrooms</p>
+  <p>internet?  {% if property.internet == True %}yes{% else %}no{% endif %}</p>
+  <p>host: <a href="{% url 'client_detail' pk=property.client.pk %}">{{ property.client.name }}</a></p>
+
+{% endblock %}

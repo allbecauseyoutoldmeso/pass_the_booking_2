@@ -4,7 +4,7 @@
 
 {% for property in properties %}
   <div>
-    <p><a href="">{{ property.address }}</a></p>
+    <p><a href="{% url 'property_detail' pk=property.pk %}">{{ property.address }}</a></p>
   </div>
 {% endfor %}
 

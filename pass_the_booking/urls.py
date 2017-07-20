@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^client/new/$', views.client_new, name='client_new'),
     url(r'^client/(?P<pk>\d+)/edit/$', views.client_edit, name='client_edit'),
     url(r'^properties/$', views.properties, name='properties'),
+    url(r'^properties/(?P<pk>\d+)/$', views.property_detail, name='property_detail'),
 ]
