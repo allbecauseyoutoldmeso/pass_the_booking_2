@@ -2,16 +2,23 @@
 
 {% block content %}
 
-  <p>{{ client.name }}</p>
-  <p>D.O.B: {{ client.dob }}</p>
-  <p>email: {{ client.email }}</p>
-  <p>telephone: {{ client.telephone }}</p>
+  <div>
+    <p>{{ client.name }}</p>
+    <p>D.O.B: {{ client.dob }}</p>
+    <p>email: {{ client.email }}</p>
+    <p>telephone: {{ client.telephone }}</p>
+  </div>
 
-  {% for property in properties %}
-    <p><a href="{% url 'property_detail' pk=property.pk %}">{{ property.address }}</a></p>
-  {% endfor %}
+  <div>
+    <p>properties:</p>
+    {% for property in properties %}
+      <p><a href="{% url 'property_detail' pk=property.pk %}">{{ property.address }}</a></p>
+    {% endfor %}
+  </div>
 
-  <a href="{% url 'property_new' pk=client.pk %}">add a property for this client</a>
-  <a href="{% url 'client_edit' pk=client.pk %}">edit client details</a>
+  <div>
+    <p><a href="{% url 'property_new' pk=client.pk %}">add a property for this client</a></p>
+    <p><a href="{% url 'client_edit' pk=client.pk %}">edit client details</a></p>
+  </div>
 
 {% endblock %}
