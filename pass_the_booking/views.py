@@ -40,7 +40,8 @@ def properties(request):
 
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
-    return render(request, 'pass_the_booking/property_detail.html', {'property': property })
+    bookings = property.booking_set.all()
+    return render(request, 'pass_the_booking/property_detail.html', {'property': property, 'bookings': bookings })
 
 def booking_detail(request, pk):
     booking = get_object_or_404(Booking, pk=pk)
