@@ -14,3 +14,14 @@ class Property(models.Model):
     price = models.IntegerField()
     bedrooms = models.IntegerField()
     internet = models.BooleanField()
+
+class Booking(models.Model):
+
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    check_in = models.DateField()
+    check_out = models.DateField()
+    guest_name = models.CharField(max_length=200)
+    guest_email = models.EmailField(max_length=254)
+
+    def total_price(self):
+        return (self.check_out - self.check_in).days * self.property.price

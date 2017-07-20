@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Client, Property
+from .models import Client, Property, Booking
 import datetime
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -28,6 +28,29 @@ class PropertyTestCase(TestCase):
         self.assertEqual(langthorne_road.price, 29)
         self.assertEqual(langthorne_road.bedrooms, 2)
         self.assertEqual(langthorne_road.internet, False)
+
+class BookingTestCase(TestCase):
+    def setUp(self):
+        kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
+        langthorne_road = Property.objects.create(client = kate, address='123 langthorne road', price=29, bedrooms=2, internet=False)
+        Booking.objects.create(property = langthorne_road, check_in = '2017-10-12', check_out = '2017-10-14', guest_name = 'sally', guest_email = 'sally@sally.com')
+
+    def test_booking_has_relevant_details(self):
+        """Properties are stored with relevant information"""
+        sally_booking = Booking.objects.get(pk=1)
+        self.assertEqual(sally_booking.property.address, '123 langthorne road')
+        self.assertEqual(sally_booking.check_in, datetime.date(2017, 10, 12))
+        self.assertEqual(sally_booking.check_out, datetime.date(2017, 10, 14))
+        self.assertEqual(sally_booking.guest_name, 'sally')
+        self.assertEqual(sally_booking.guest_email, 'sally@sally.com')
+
+    def test_total_price(self):
+        """total_price method returns correct price"""
+        sally_booking = Booking.objects.get(pk=1)
+        self.assertEqual(sally_booking.total_price(), 58)
+
+
+
 
 #
 # class MySeleniumTests(StaticLiveServerTestCase):
