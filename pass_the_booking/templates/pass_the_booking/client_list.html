@@ -1,18 +1,11 @@
-{% load staticfiles %}
+{% extends 'pass_the_booking/base.html' %}
 
-<html>
-  <head>
-    <title>pass the booking</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/pass_the_booking.css' %}">
-  </head>
+{% block content %}
 
-  <body>
-    {% for client in clients %}
-    <div>
-        <h1><a href="">{{ client.name|linebreaksbr }}</a></h1>
-    </div>
+{% for client in clients %}
+  <div>
+    <h1><a href="">{{ client.name|linebreaksbr }}</a></h1>
+  </div>
 {% endfor %}
-  </body>
-</html>
+
+{% endblock %}
