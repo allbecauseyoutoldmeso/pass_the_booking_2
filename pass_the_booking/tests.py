@@ -29,12 +29,6 @@ class PropertyTestCase(TestCase):
         self.assertEqual(langthorne_road.bedrooms, 2)
         self.assertEqual(langthorne_road.internet, False)
 
-
-
-
-
-# from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-# from selenium.webdriver.firefox.webdriver import WebDriver
 #
 # class MySeleniumTests(StaticLiveServerTestCase):
 #

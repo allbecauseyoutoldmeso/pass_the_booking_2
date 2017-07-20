@@ -5,7 +5,12 @@
   <p>{{ client.name }}</p>
   <p>D.O.B: {{ client.dob }}</p>
   <p>email: {{ client.email }}</p>
-  <p>telephone: {{ client.telephone|linebreaksbr }}</p>
+  <p>telephone: {{ client.telephone }}</p>
+
+  {% for property in properties %}
+    <p>{{ property.address }}</p>
+  {% endfor %}
+
 
   <a href="{% url 'client_edit' pk=client.pk %}">edit client details</a>
 

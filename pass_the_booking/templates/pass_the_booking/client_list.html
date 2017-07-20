@@ -4,7 +4,7 @@
 
 {% for client in clients %}
   <div>
-    <h1><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name|linebreaksbr }}</a></h1>
+    <p><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></p>
   </div>
 {% endfor %}
 

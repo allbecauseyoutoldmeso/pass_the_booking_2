@@ -8,7 +8,8 @@ def client_list(request):
 
 def client_detail(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    return render(request, 'pass_the_booking/client_detail.html', {'client': client})
+    properties = client.property_set.all()
+    return render(request, 'pass_the_booking/client_detail.html', {'client': client, 'properties': properties})
 
 def client_new(request):
     if request.method == 'POST':
