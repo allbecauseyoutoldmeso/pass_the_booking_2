@@ -20,8 +20,7 @@ class Property(models.Model):
     def unavailable_dates(self):
         booked_dates = []
         for booking in self.booking_set.all():
-            delta = booking.check_out - booking.check_in
-            for i in range(delta.days):
+            for i in range((booking.check_out - booking.check_in).days):
                 booked_dates.append(booking.check_in + timedelta(i))
         return booked_dates
 
