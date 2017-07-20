@@ -1,4 +1,4 @@
-from .models import Client
+from .models import Client, Property
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ClientForm
 
@@ -33,3 +33,7 @@ def client_edit(request, pk):
     else:
         form = ClientForm(instance=client)
         return render(request, 'pass_the_booking/client_edit.html', {'form': form})
+
+def properties(request):
+    properties = Property.objects.order_by('client')
+    return render(request, 'pass_the_booking/properties.html', {'properties': properties })

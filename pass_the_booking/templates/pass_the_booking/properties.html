@@ -1,0 +1,12 @@
+{% extends 'pass_the_booking/base.html' %}
+
+{% block content %}
+
+{% for property in properties %}
+  <div>
+    <p><a href="">{{ property.address }}</a></p>
+  </div>
+{% endfor %}
+
+
+{% endblock %}
