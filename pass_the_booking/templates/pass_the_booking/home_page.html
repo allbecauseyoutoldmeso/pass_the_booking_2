@@ -3,17 +3,14 @@
 <html>
   <head>
     <title>pass the booking</title>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/pass_the_booking.css' %}">
   </head>
 
   <body>
-    <p>pass the booking</p>
-    <p><a href="{% url 'home_page' %}">back to home page</a></p>
-    {% block content %}
-    {% endblock %}
+    <p>welcome to pass the booking</p>
+    <p><a href="{% url 'client_list' %}">all clients</a></p>
+    <p><a href="{% url 'property_list' %}">all properties</a></p>
   </body>
 </html>

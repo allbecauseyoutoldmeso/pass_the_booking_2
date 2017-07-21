@@ -2,6 +2,9 @@ from .models import Client, Property, Booking
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ClientForm, PropertyForm, BookingForm
 
+def home_page(request):
+    return render(request, 'pass_the_booking/home_page.html')
+
 def client_list(request):
     clients = Client.objects.order_by('name')
     return render(request, 'pass_the_booking/client_list.html', {'clients': clients})
@@ -77,9 +80,9 @@ def booking_edit(request, pk):
         form = BookingForm(instance=booking)
     return render(request, 'pass_the_booking/booking_edit.html', {'form': form, 'property': property })
 
-def properties(request):
+def property_list(request):
     properties = Property.objects.order_by('client')
-    return render(request, 'pass_the_booking/properties.html', {'properties': properties })
+    return render(request, 'pass_the_booking/property_list.html', {'properties': properties })
 
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
