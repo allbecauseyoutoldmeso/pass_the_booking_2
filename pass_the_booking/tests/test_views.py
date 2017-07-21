@@ -36,3 +36,11 @@ class ViewTests(TestCase):
         Booking.objects.create(property = langthorne_road, check_in = '2017-10-12', check_out = '2017-10-14', guest_name = 'sally', guest_email = 'sally@sally.com')
         response = self.client.get('/bookings/')
         self.assertContains(response, "sally's booking for 123 langthorne road")
+
+    def test_booking_detail(self):
+        kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
+        langthorne_road = Property.objects.create(client = kate, address='123 langthorne road', price=29, bedrooms=2, internet=False)
+        Booking.objects.create(property = langthorne_road, check_in = '2017-10-12', check_out = '2017-10-14', guest_name = 'sally', guest_email = 'sally@sally.com')
+        response = self.client.get('/bookings/1/')
+        self.assertContains(response, '123 langthorne road')
+        self.assertContains(response, 'guest: sally')
