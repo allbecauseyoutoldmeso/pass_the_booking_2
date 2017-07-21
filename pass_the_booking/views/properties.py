@@ -4,12 +4,12 @@ from ..forms import ClientForm, PropertyForm, BookingForm
 
 def property_list(request):
     properties = Property.objects.order_by('client')
-    return render(request, 'pass_the_booking/property_list.html', {'properties': properties })
+    return render(request, 'pass_the_booking/properties/property_list.html', {'properties': properties })
 
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
     bookings = property.booking_set.all()
-    return render(request, 'pass_the_booking/property_detail.html', {'property': property, 'bookings': bookings })
+    return render(request, 'pass_the_booking/properties/property_detail.html', {'property': property, 'bookings': bookings })
 
 def property_new(request, pk):
     client = get_object_or_404(Client, pk=pk)
@@ -22,7 +22,7 @@ def property_new(request, pk):
             return redirect('property_detail', pk=property.pk)
     else:
         form = PropertyForm()
-    return render(request, 'pass_the_booking/property_edit.html', { 'form': form, 'client': client })
+    return render(request, 'pass_the_booking/properties/property_edit.html', { 'form': form, 'client': client })
 
 def property_edit(request, pk):
     property = get_object_or_404(Property, pk=pk)
@@ -35,7 +35,7 @@ def property_edit(request, pk):
             return redirect('property_detail', pk=property.pk)
     else:
         form = PropertyForm(instance=property)
-    return render(request, 'pass_the_booking/property_edit.html', {'form': form, 'client': client })
+    return render(request, 'pass_the_booking/properties/property_edit.html', {'form': form, 'client': client })
 
 def property_delete(request, pk):
     property = get_object_or_404(Property, pk=pk)
