@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Client, Property, Booking
+from ..models import Client, Property, Booking
 import datetime
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
