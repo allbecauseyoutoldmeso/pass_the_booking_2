@@ -27,8 +27,7 @@ def client_edit(request, pk):
     if request.method == "POST":
         form = ClientForm(request.POST, instance=client)
         if form.is_valid():
-            client = form.save(commit=False)
-            client.save()
+            client = form.save(commit=True)
             return redirect('client_detail', pk=client.pk)
     else:
         form = ClientForm(instance=client)

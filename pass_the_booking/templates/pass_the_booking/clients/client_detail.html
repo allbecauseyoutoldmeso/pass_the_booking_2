@@ -10,7 +10,7 @@
   </div>
 
   <div>
-    <p>properties:</p>
+    <p>properties (select a property to see details or add a booking):</p>
     {% for property in properties %}
       <p><a href="{% url 'property_detail' pk=property.pk %}">{{ property.address }}</a></p>
     {% endfor %}

@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<p>click on a client to see their details, or to add client properties.</p>
+
 {% for client in clients %}
   <div>
     <p><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></p>
