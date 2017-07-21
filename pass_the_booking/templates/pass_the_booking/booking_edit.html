@@ -4,9 +4,30 @@
 
    <p>add a new booking for {{ property.address }}</p>
 
-    <form method='post'>{% csrf_token %}
-        {{ form.as_p }}
-        <button type='submit'>save</button>
-    </form>
+   <form method='post'>{% csrf_token %}
+     {{ form.guest_name.errors }}
+     <label for="{{ form.guest_name.id_for_label }}">guest name:</label>
+     {{ form.guest_name }}
+     {{ form.guest_email.errors }}
+     <label for="{{ form.guest_email.id_for_label }}">guest email:</label>
+     {{ form.guest_email }}
+     {{ form.check_in.errors }}
+     <label for="{{ form.check_in.id_for_label }}">check in date:</label>
+     {{ form.check_in }}
+     {{ form.check_out.errors }}
+     <label for="{{ form.check_out.id_for_label }}">check out date:</label>
+     {{ form.check_out }}
+     <button type='submit'>save</button>
+   </form>
+
+   <script>
+     $(function() {
+       $( ".datepicker" ).datepicker({
+         changeMonth: true,
+         changeYear: true,
+         yearRange: "2017:2020",
+       });
+     });
+   </script>
 
 {% endblock %}

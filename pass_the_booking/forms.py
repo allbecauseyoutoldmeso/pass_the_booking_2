@@ -20,4 +20,8 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
+        widgets = {
+            'check_in': forms.DateInput(attrs={'class':'datepicker'}),
+            'check_out': forms.DateInput(attrs={'class':'datepicker'}),
+        }
         fields = ('guest_name', 'guest_email', 'check_in', 'check_out',)
