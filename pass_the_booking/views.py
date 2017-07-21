@@ -39,6 +39,24 @@ def client_delete(request, pk):
     client.delete()
     return redirect('client_list')
 
+def property_delete(request, pk):
+    property = get_object_or_404(Property, pk=pk)
+    client = property.client
+    property.delete()
+    return redirect('client_detail', pk=client.pk)
+
+def property_edit(request, pk):
+    property = get_object_or_404(Property, pk=pk)
+    client = property.client
+    if request.method == "POST":
+        form = PropertyForm(request.POST, instance=property)
+        if form.is_valid():
+            property = form.save(commit=False)
+            property.save()
+            return redirect('property_detail', pk=property.pk)
+    else:
+        form = PropertyForm(instance=property)
+    return render(request, 'pass_the_booking/property_edit.html', {'form': form, 'client': client })
 
 def properties(request):
     properties = Property.objects.order_by('client')

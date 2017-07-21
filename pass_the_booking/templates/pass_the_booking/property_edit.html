@@ -2,7 +2,7 @@
 
 {% block content %}
 
-   <p>add a new property for {{ client.name }}</p>
+   <p>host: {{ client.name }}</p>
 
     <form method='post'>{% csrf_token %}
         {{ form.as_p }}

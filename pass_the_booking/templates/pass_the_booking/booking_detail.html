@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <p>property: <a href="{% url 'property_detail' pk=booking.property.pk %}">{{ booking.property.address }}</a></p>
+  <p>property address: <a href="{% url 'property_detail' pk=booking.property.pk %}">{{ booking.property.address }}</a></p>
   <p>host: <a href="{% url 'client_detail' pk=booking.property.client.pk %}">{{ booking.property.client.name }}</a></p>
   <p>check in: {{ booking.check_in }}</p>
   <p>check out: {{ booking.check_out }}</p>

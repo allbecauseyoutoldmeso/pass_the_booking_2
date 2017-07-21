@@ -2,7 +2,7 @@
 
 {% block content %}
 
-   <p>add a new booking for {{ property.address }}</p>
+   <p>booking details for {{ property.address }}</p>
 
    <form method='post'>{% csrf_token %}
      {{ form.guest_name.errors }}
@@ -26,7 +26,7 @@
          changeMonth: true,
          changeYear: true,
          minDate: 0,
-         dateFormat: "dd-mm-yy"
+         dateFormat: "yy-mm-dd"
        });
      });
    </script>
@@ -38,7 +38,7 @@
           changeMonth: true,
           changeYear: true,
           minDate: 0,
-          dateFormat: "dd-mm-yy"
+          dateFormat: "yy-mm-dd"
         })
       })
     })

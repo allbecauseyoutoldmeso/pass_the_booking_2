@@ -19,6 +19,8 @@
 
   <div>
     <a href="{% url 'booking_new' pk=property.pk %}">add a booking for this property</a>
+    <p><a href="{% url 'property_edit' pk=property.pk %}">edit property details</a></p>
+    <p><a href="{% url 'property_delete' pk=property.pk %}">delete this property from database</a></p>
   </div>
 
 {% endblock %}
