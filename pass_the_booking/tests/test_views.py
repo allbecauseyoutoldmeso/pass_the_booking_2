@@ -24,6 +24,12 @@ class ViewTests(TestCase):
         response = self.client.get('/properties/')
         self.assertContains(response, '123 langthorne road')
 
+    def test_property_detail(self):
+        kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
+        Property.objects.create(client = kate, address='123 langthorne road', price=29, bedrooms=2, internet=False)
+        response = self.client.get('/properties/1/')
+        self.assertContains(response, '123 langthorne road')
+
     def test_booking_list(self):
         kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
         langthorne_road = Property.objects.create(client = kate, address='123 langthorne road', price=29, bedrooms=2, internet=False)
