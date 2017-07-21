@@ -2,7 +2,6 @@ from django.test import TestCase
 from ..models import Client, Property, Booking
 import datetime
 
-
 class ClientTestCase(TestCase):
     def setUp(self):
         Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
@@ -13,7 +12,6 @@ class ClientTestCase(TestCase):
         self.assertEqual(kate.dob, datetime.date(1981, 9, 13))
         self.assertEqual(kate.email, 'kate@kate.com')
         self.assertEqual(kate.telephone, '01234123123')
-
 
 class PropertyTestCase(TestCase):
     def setUp(self):

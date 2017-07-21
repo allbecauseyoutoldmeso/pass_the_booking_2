@@ -1,7 +1,7 @@
 from django.test import TestCase
 from ..models import Client, Property, Booking
 
-class ProjectTests(TestCase):
+class ViewTests(TestCase):
 
     def test_homepage(self):
         response = self.client.get('/')
@@ -11,6 +11,11 @@ class ProjectTests(TestCase):
     def test_client_list(self):
         Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
         response = self.client.get('/clients/')
+        self.assertContains(response, 'kate gleeson')
+
+    def test_client_detail(self):
+        kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
+        response = self.client.get('/clients/1/')
         self.assertContains(response, 'kate gleeson')
 
     def test_property_list(self):
