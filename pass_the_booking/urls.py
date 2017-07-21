@@ -14,4 +14,6 @@ urlpatterns = [
     url(r'^properties/(?P<pk>\d+)/delete/$', views.property_delete, name='property_delete'),
     url(r'^properties/(?P<pk>\d+)/bookings/new/$', views.booking_new, name='booking_new'),
     url(r'^bookings/(?P<pk>\d+)/$', views.booking_detail, name='booking_detail'),
+    url(r'^bookings/(?P<pk>\d+)/edit/$', views.booking_edit, name='booking_edit'),
+    url(r'^bookings/(?P<pk>\d+)/delete/$', views.booking_delete, name='booking_delete'),
 ]

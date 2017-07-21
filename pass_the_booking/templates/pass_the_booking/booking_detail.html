@@ -2,10 +2,17 @@
 
 {% block content %}
 
-  <p>property address: <a href="{% url 'property_detail' pk=booking.property.pk %}">{{ booking.property.address }}</a></p>
-  <p>host: <a href="{% url 'client_detail' pk=booking.property.client.pk %}">{{ booking.property.client.name }}</a></p>
-  <p>check in: {{ booking.check_in }}</p>
-  <p>check out: {{ booking.check_out }}</p>
-  <p>total price: £{{ booking.total_price }} </p>
+  <div>
+    <p>property address: <a href="{% url 'property_detail' pk=booking.property.pk %}">{{ booking.property.address }}</a></p>
+    <p>host: <a href="{% url 'client_detail' pk=booking.property.client.pk %}">{{ booking.property.client.name }}</a></p>
+    <p>check in: {{ booking.check_in }}</p>
+    <p>check out: {{ booking.check_out }}</p>
+    <p>total price: £{{ booking.total_price }} </p>
+  </div>
+
+  <div>
+    <p><a href="{% url 'booking_edit' pk=booking.pk %}">edit booking details</a></p>
+    <p><a href="{% url 'booking_delete' pk=booking.pk %}">delete this booking from database</a></p>
+  </div>
 
 {% endblock %}
