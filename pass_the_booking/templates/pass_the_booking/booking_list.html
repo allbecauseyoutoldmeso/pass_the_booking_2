@@ -1,0 +1,11 @@
+{% extends 'pass_the_booking/base.html' %}
+
+{% block content %}
+
+{% for booking in bookings %}
+  <div>
+    <p><a href="{% url 'booking_detail' pk=booking.pk %}">{{ booking.guest_name }}'s booking for {{ booking.property.address }}</a></p>
+  </div>
+{% endfor %}
+
+{% endblock %}
