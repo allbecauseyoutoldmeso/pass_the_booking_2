@@ -5,6 +5,9 @@ class ClientForm(forms.ModelForm):
 
     class Meta:
         model = Client
+        widgets = {
+            'dob': forms.DateInput(attrs={'class':'datepicker'}),
+        }
         fields = ('name', 'dob', 'email', 'telephone',)
 
 class PropertyForm(forms.ModelForm):

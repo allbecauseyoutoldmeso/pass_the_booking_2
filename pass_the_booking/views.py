@@ -32,7 +32,7 @@ def client_edit(request, pk):
             return redirect('client_detail', pk=client.pk)
     else:
         form = ClientForm(instance=client)
-        return render(request, 'pass_the_booking/client_edit.html', {'form': form})
+    return render(request, 'pass_the_booking/client_edit.html', {'form': form})
 
 def properties(request):
     properties = Property.objects.order_by('client')
@@ -58,7 +58,7 @@ def booking_new(request, pk):
             return redirect('booking_detail', pk=booking.pk)
     else:
         form = BookingForm()
-        return render(request, 'pass_the_booking/booking_edit.html', { 'form': form, 'property': property })
+    return render(request, 'pass_the_booking/booking_edit.html', { 'form': form, 'property': property })
 
 def property_new(request, pk):
     client = get_object_or_404(Client, pk=pk)
@@ -71,4 +71,4 @@ def property_new(request, pk):
             return redirect('property_detail', pk=property.pk)
     else:
         form = PropertyForm()
-        return render(request, 'pass_the_booking/property_edit.html', { 'form': form, 'client': client })
+    return render(request, 'pass_the_booking/property_edit.html', { 'form': form, 'client': client })

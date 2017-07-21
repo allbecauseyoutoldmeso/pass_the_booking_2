@@ -3,8 +3,31 @@
 {% block content %}
 
     <form method='post'>{% csrf_token %}
-        {{ form.as_p }}
-        <button type='submit'>save</button>
+      {{ form.name.errors }}
+      <label for="{{ form.name.id_for_label }}">name:</label>
+      {{ form.name }}
+      {{ form.email.errors }}
+      <label for="{{ form.email.id_for_label }}">email:</label>
+      {{ form.email }}
+      {{ form.dob.errors }}
+      <label for="{{ form.dob.id_for_label }}">d.o.b.:</label>
+      {{ form.dob }}
+      {{ form.telephone.errors }}
+      <label for="{{ form.telephone.id_for_label }}">telephone number:</label>
+      {{ form.telephone }}
+      <button type='submit'>save</button>
     </form>
+
+    <script>
+      $(function() {
+        $( ".datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          yearRange: "1900:2012",
+          // You can put more options here.
+
+        });
+      });
+      </script>
 
 {% endblock %}
