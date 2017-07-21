@@ -35,7 +35,7 @@ class PropertyTestCase(TestCase):
     def test_unavailable_dates(self):
         """Method returns list of unavailable dates"""
         langthorne_road = Property.objects.get(address='123 langthorne road')
-        self.assertEqual(langthorne_road.unavailable_dates(), [datetime.date(2017, 10, 12), datetime.date(2017, 10, 13)])
+        self.assertEqual(langthorne_road.unavailable_dates(), ['10-12-2017', '10-13-2017'])
 
 
 class BookingTestCase(TestCase):

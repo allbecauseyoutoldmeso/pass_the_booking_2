@@ -20,7 +20,8 @@ class Property(models.Model):
         booked_dates = []
         for booking in self.booking_set.all():
             for i in range((booking.check_out - booking.check_in).days):
-                booked_dates.append(booking.check_in + timedelta(i))
+                d = booking.check_in + timedelta(i)
+                booked_dates.append(d.strftime('%m-%d-%Y'))
         return booked_dates
 
 class Booking(models.Model):
