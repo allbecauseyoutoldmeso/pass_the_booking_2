@@ -2,9 +2,6 @@ from django.test import TestCase
 from ..models import Client, Property, Booking
 import datetime
 
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
-
 
 class ClientTestCase(TestCase):
     def setUp(self):
@@ -57,24 +54,3 @@ class BookingTestCase(TestCase):
         """total_price method returns correct price"""
         sally_booking = Booking.objects.get(pk=1)
         self.assertEqual(sally_booking.total_price(), 58)
-
-
-
-
-#
-# class MySeleniumTests(StaticLiveServerTestCase):
-#
-#     @classmethod
-#     def setUpClass(cls):
-#         super(MySeleniumTests, cls).setUpClass()
-#         cls.selenium = WebDriver()
-#         cls.selenium.implicitly_wait(10)
-#
-#     @classmethod
-#     def tearDownClass(cls):
-#         cls.selenium.quit()
-#         super(MySeleniumTests, cls).tearDownClass()
-#
-#     def test_homepage(self):
-#         self.selenium.get('%s%s' % (self.live_server_url, '/'))
-#         self.selenium.find_elements_by_link_text('kate gleeson')
