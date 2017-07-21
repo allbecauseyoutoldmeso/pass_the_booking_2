@@ -22,12 +22,40 @@
 
    <script>
      $(function() {
-       $( ".datepicker" ).datepicker({
+       $( "#datepicker_to" ).datepicker({
          changeMonth: true,
          changeYear: true,
-         yearRange: "2017:2020",
+         minDate: 0,
+         dateFormat: "dd-mm-yy"
        });
      });
    </script>
+
+   <script>
+    $(document).ready(function() {
+      $(function() {
+        $('#datepicker_from').datepicker({
+          changeMonth: true,
+          changeYear: true,
+          minDate: 0,
+          dateFormat: "dd-mm-yy"
+        })
+      })
+    })
+
+
+    // $( document ).ready(function() {
+    //   $( function() {
+    //     $( "#datepicker_from" ).datepicker({
+    //         dateFormat: "dd-mm-yy",
+    //         beforeShowDay: function(date) {
+    //         var disableddates = {{ property.unavailable_dates }};
+    //         var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+    //         return [ disableddates.indexOf(string) == -1 ]
+    //       }
+    //     });
+    //   });
+    // });
+</script>
 
 {% endblock %}
