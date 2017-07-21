@@ -34,6 +34,12 @@ def client_edit(request, pk):
         form = ClientForm(instance=client)
     return render(request, 'pass_the_booking/client_edit.html', {'form': form})
 
+def client_delete(request, pk):
+    client = client = get_object_or_404(Client, pk=pk)
+    client.delete()
+    return redirect('client_list')
+
+
 def properties(request):
     properties = Property.objects.order_by('client')
     return render(request, 'pass_the_booking/properties.html', {'properties': properties })

@@ -19,6 +19,7 @@
   <div>
     <p><a href="{% url 'property_new' pk=client.pk %}">add a property for this client</a></p>
     <p><a href="{% url 'client_edit' pk=client.pk %}">edit client details</a></p>
+    <p><a href="{% url 'client_delete' pk=client.pk %}">delete this client from database</a></p>
   </div>
 
 {% endblock %}
