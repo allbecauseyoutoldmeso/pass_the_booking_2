@@ -1,6 +1,7 @@
 from django.test import TestCase
 from ..models import Client, Property, Booking
 from django_webtest import WebTest
+import datetime
 
 class ViewTests(TestCase):
 

@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import timedelta
+from django.core.exceptions import ValidationError, NON_FIELD_ERRORS
 
 class Client(models.Model):
 
@@ -7,6 +8,7 @@ class Client(models.Model):
     email = models.EmailField(max_length=254)
     dob = models.DateField()
     telephone = models.CharField(max_length=200)
+
 
 class Property(models.Model):
 
@@ -34,3 +36,8 @@ class Booking(models.Model):
 
     def total_price(self):
         return (self.check_out - self.check_in).days * self.property.price
+
+    def clean(self):
+        if self.check_in is not None and self.check_out is not None:
+            if self.check_in > self.check_out:
+                raise ValidationError({'check_out': ('check out cannot be earlier than check in.')})
