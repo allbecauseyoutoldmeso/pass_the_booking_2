@@ -46,14 +46,11 @@ class ViewTests(TestCase):
         self.assertContains(response, '123 langthorne road')
         self.assertContains(response, 'guest: sally')
 
-class ViewingFormsTests(WebTest):
-
-    def test_client_form_displayed(self):
-        page = self.app.get('/clients/new/')
-        self.assertEqual(len(page.forms), 1)
+class AddingNewObjectTests(WebTest):
 
     def test_adding_new_client(self):
         page = self.app.get('/clients/new/')
+        self.assertEqual(len(page.forms), 1)
         page.form['name'] = 'kate gleeson'
         page.form['email'] = 'kate@kate.com'
         page.form['dob'] = '1981-09-13'
@@ -61,10 +58,16 @@ class ViewingFormsTests(WebTest):
         page = page.form.submit()
         self.assertRedirects(page, '/clients/1/')
 
-    def test_property_form_displayed(self):
+    def test_adding_new_property(self):
         Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
         page = self.app.get('/clients/1/properties/new/')
         self.assertEqual(len(page.forms), 1)
+        page.form['address'] = '123 langthorne road'
+        page.form['price'] = 29
+        page.form['bedrooms'] = 2
+        page.form['internet'] = True
+        page = page.form.submit()
+        self.assertRedirects(page, '/properties/1/')
 
     def test_booking_form_displayed(self):
         kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
