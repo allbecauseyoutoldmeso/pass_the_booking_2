@@ -1,25 +1,13 @@
-Lily Uzunova
-[10:41 AM]
-Morning @allbecauseyoutoldmeso how is the PTK tech test coming along?
-
-
-
------ Yesterday July 19th, 2017 -----
-Lily Uzunova [11:44 AM]
-Hi @allbecauseyoutoldmeso , another devs asked a question on the PTK tech test, attached in case of interest
-
-
-Lily Uzunova
-[11:44 AM]
-uploaded this image: Screen Shot 2017-07-18 at 13.54.59.png
-Add Comment
-
-
-
-Lily Uzunova
-[11:51 AM]
-@allbecauseyoutoldmeso
-
+* Navigate into this directory.
+* Run:        
+  ```source myvenv/bin/acvitate```        
+  ```pip install -r requirements.txt```
+* To run my tests:  
+  ```./manage.py test```
+* To run app locally:     
+  ```python manage.py runserver```   
+  and visit:   
+  ***http://127.0.0.1:8000/***
 
 [11:51]
 Pls use this check list before sending your tech test to Richard. Tests with no Read me or Tests *will no be* reviewed.
