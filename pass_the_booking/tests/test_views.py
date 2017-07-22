@@ -81,3 +81,15 @@ class AddingNewObjectTests(WebTest):
         page.form['check_out'] = '2017-12-03'
         page = page.form.submit()
         self.assertRedirects(page, '/bookings/1/')
+
+    # def test_error_raised_if_try_to_book_unavailable_dates(self):
+    #     kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
+    #     langthorne_road = Property.objects.create(client = kate, address='123 langthorne road', price=29, bedrooms=2, internet=False)
+    #     Booking.objects.create(property = langthorne_road, check_in = '2017-12-02', check_out = '2017-12-05', guest_name = 'sally', guest_email = 'sally@sally.com')
+    #     page = self.app.get('/properties/1/bookings/new/')
+    #     page.form['guest_name'] = 'sally gleeson'
+    #     page.form['guest_email'] = 'sally@sally.com'
+    #     page.form['check_in'] = '2017-12-01'
+    #     page.form['check_out'] = '2017-12-03'
+    #     page = page.form.submit()
+    #     self.assertContains(page, 'these dates are not available')

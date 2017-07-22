@@ -53,3 +53,8 @@ class BookingTestCase(TestCase):
         """total_price method returns correct price"""
         sally_booking = Booking.objects.get(pk=1)
         self.assertEqual(sally_booking.total_price(), 58)
+
+    def test_all_dates(self):
+        """method returns array of all nights guest is staying"""
+        sally_booking = Booking.objects.get(pk=1)
+        self.assertEqual(sally_booking.all_dates(), ['10-12-2017', '10-13-2017'])
