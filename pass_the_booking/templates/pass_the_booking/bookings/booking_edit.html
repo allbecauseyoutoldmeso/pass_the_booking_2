@@ -19,22 +19,11 @@
      {{ form.check_out }}
      <button type='submit'>save</button>
    </form>
-   
-   <script>
-     $(function() {
-       $( "#datepicker_to" ).datepicker({
-         changeMonth: true,
-         changeYear: true,
-         minDate: 0,
-         dateFormat: "yy-mm-dd"
-       });
-     });
-   </script>
 
    <script>
     $(document).ready(function() {
       $(function() {
-        $('#datepicker_from').datepicker({
+        $('.booking_datepicker').datepicker({
           changeMonth: true,
           changeYear: true,
           minDate: 0,
@@ -42,7 +31,6 @@
           beforeShowDay: function(date) {
             var disableddates = []
             {% for x in property.unavailable_dates %}
-              console.log({{x}})
               disableddates.push(String({{x}}))
             {% endfor %}
             var string = jQuery.datepicker.formatDate('yymmdd', date);
