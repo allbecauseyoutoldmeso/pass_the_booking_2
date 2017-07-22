@@ -1,6 +1,7 @@
 from django.test import TestCase
 from ..models import Client, Property, Booking
 import datetime
+from django.core.exceptions import ValidationError, NON_FIELD_ERRORS
 
 class ClientTestCase(TestCase):
     def setUp(self):

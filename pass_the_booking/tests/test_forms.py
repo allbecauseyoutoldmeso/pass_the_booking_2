@@ -85,3 +85,15 @@ class BookingFormTest(TestCase):
             'check_in': ['This field is required.'],
             'check_out': ['This field is required.'],
         })
+
+    def test_error_if_check_in_before_check_out(self):
+        form = BookingForm({
+            'guest_name': 'sally gleeson',
+            'guest_email': 'sally@sally.com',
+            'check_in': '2017-10-03',
+            'check_out': '2017-10-01'
+        })
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors, {
+            'check_out': ['check out cannot be earlier than check in.'],
+        })
