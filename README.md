@@ -9,6 +9,10 @@
   and visit:   
   ***http://127.0.0.1:8000/***
 
+* To see test coverage run:  
+  ```coverage run manage.py test```   
+  ```coverage report```
+
 [11:51]
 Pls use this check list before sending your tech test to Richard. Tests with no Read me or Tests *will no be* reviewed.
 https://github.com/makersacademy/jobhunters/blob/master/tech_tests_how_to_succeed.md
