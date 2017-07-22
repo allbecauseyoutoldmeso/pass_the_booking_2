@@ -52,6 +52,15 @@ class ViewingFormsTests(WebTest):
         page = self.app.get('/clients/new/')
         self.assertEqual(len(page.forms), 1)
 
+    def test_adding_new_client(self):
+        page = self.app.get('/clients/new/')
+        page.form['name'] = 'kate gleeson'
+        page.form['email'] = 'kate@kate.com'
+        page.form['dob'] = '1981-09-13'
+        page.form['telephone'] = '01234123123'
+        page = page.form.submit()
+        self.assertRedirects(page, '/clients/1/')
+
     def test_property_form_displayed(self):
         Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
         page = self.app.get('/clients/1/properties/new/')
