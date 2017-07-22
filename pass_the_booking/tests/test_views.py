@@ -53,9 +53,12 @@ class ViewingFormsTests(WebTest):
         self.assertEqual(len(page.forms), 1)
 
     def test_property_form_displayed(self):
-        page = self.app.get('/properties/new/')
+        Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
+        page = self.app.get('/clients/1/properties/new/')
         self.assertEqual(len(page.forms), 1)
 
     def test_booking_form_displayed(self):
-        page = self.app.get('/bookings/new/')
+        kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
+        Property.objects.create(client = kate, address='123 langthorne road', price=29, bedrooms=2, internet=False)
+        page = self.app.get('/properties/1/bookings/new/')
         self.assertEqual(len(page.forms), 1)
