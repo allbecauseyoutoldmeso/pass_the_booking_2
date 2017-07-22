@@ -1,5 +1,6 @@
 from django.test import TestCase
 from ..models import Client, Property, Booking
+from django_webtest import WebTest
 
 class ViewTests(TestCase):
 
@@ -44,3 +45,9 @@ class ViewTests(TestCase):
         response = self.client.get('/bookings/1/')
         self.assertContains(response, '123 langthorne road')
         self.assertContains(response, 'guest: sally')
+
+class ViewingFormsTests(WebTest):
+
+    def test_client_form_displayed(self):
+        page = self.app.get('/clients/new/')
+        self.assertEqual(len(page.forms), 1)
