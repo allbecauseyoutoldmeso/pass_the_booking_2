@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 from datetime import timedelta
 from django.core.exceptions import ValidationError, NON_FIELD_ERRORS
 
@@ -41,3 +42,5 @@ class Booking(models.Model):
         if self.check_in is not None and self.check_out is not None:
             if self.check_in > self.check_out:
                 raise ValidationError({'check_out': ('check out cannot be earlier than check in.')})
+            if self.check_in < datetime.date.today():
+                raise ValidationError({'check_out': ('check in cannot be earlier than today.')})
