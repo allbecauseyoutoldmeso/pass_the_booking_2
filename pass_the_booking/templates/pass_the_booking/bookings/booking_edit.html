@@ -19,7 +19,7 @@
      {{ form.check_out }}
      <button type='submit'>save</button>
    </form>
-
+   
    <script>
      $(function() {
        $( "#datepicker_to" ).datepicker({
@@ -38,24 +38,20 @@
           changeMonth: true,
           changeYear: true,
           minDate: 0,
-          dateFormat: "yy-mm-dd"
+          dateFormat: "yy-mm-dd",
+          beforeShowDay: function(date) {
+            var disableddates = []
+            {% for x in property.unavailable_dates %}
+              console.log({{x}})
+              disableddates.push(String({{x}}))
+            {% endfor %}
+            var string = jQuery.datepicker.formatDate('yymmdd', date);
+            return [ disableddates.indexOf(string) == -1 ]
+          }
         })
       })
     })
 
-
-    // $( document ).ready(function() {
-    //   $( function() {
-    //     $( "#datepicker_from" ).datepicker({
-    //         dateFormat: "dd-mm-yy",
-    //         beforeShowDay: function(date) {
-    //         var disableddates = {{ property.unavailable_dates }};
-    //         var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-    //         return [ disableddates.indexOf(string) == -1 ]
-    //       }
-    //     });
-    //   });
-    // });
 </script>
 
 {% endblock %}
