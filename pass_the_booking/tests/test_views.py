@@ -74,3 +74,9 @@ class AddingNewObjectTests(WebTest):
         Property.objects.create(client = kate, address='123 langthorne road', price=29, bedrooms=2, internet=False)
         page = self.app.get('/properties/1/bookings/new/')
         self.assertEqual(len(page.forms), 1)
+        page.form['guest_name'] = 'sally gleeson'
+        page.form['guest_email'] = 'sally@sally.com'
+        page.form['check_in'] = '2017-12-01'
+        page.form['check_out'] = '2017-12-03'
+        page = page.form.submit()
+        self.assertRedirects(page, '/bookings/1/')
