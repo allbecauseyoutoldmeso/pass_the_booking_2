@@ -1,6 +1,7 @@
 from ..models import Client, Property, Booking
 from django.shortcuts import render, get_object_or_404, redirect
 from ..forms import ClientForm, PropertyForm, BookingForm
+from django.contrib import messages
 
 def booking_list(request):
     bookings = Booking.objects.order_by('property')
@@ -17,6 +18,10 @@ def booking_new(request, pk):
         if form.is_valid():
             booking = form.save(commit=False)
             booking.property = property
+            for date in booking.all_dates():
+                if date in property.unavailable_dates():
+                    messages.add_message(request, messages.INFO, 'some of the dates you selected are not available.')
+                    return redirect('booking_new', pk=property.pk)
             booking.save()
             return redirect('booking_detail', pk=booking.pk)
     else:

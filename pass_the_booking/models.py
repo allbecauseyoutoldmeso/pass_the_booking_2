@@ -42,7 +42,7 @@ class Booking(models.Model):
         dates = []
         for i in range((self.check_out - self.check_in).days):
             d = self.check_in + timedelta(i)
-            dates.append(d.strftime('%m-%d-%Y'))
+            dates.append(d.strftime('%Y%m%d'))
         return dates
 
     def clean(self):
@@ -51,3 +51,4 @@ class Booking(models.Model):
                 raise ValidationError({'check_out': ('check out cannot be earlier than check in.')})
             if self.check_in < datetime.date.today():
                 raise ValidationError({'check_in': ('check in cannot be earlier than today.')})
+                

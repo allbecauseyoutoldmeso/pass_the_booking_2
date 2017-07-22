@@ -15,5 +15,11 @@
     <p><a href="{% url 'home_page' %}">back to home page</a></p>
     {% block content %}
     {% endblock %}
+    {% if messages %}
+      {% for message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %}
+    {% endif %}
   </body>
+
 </html>
