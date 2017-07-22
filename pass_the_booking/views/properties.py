@@ -30,8 +30,7 @@ def property_edit(request, pk):
     if request.method == "POST":
         form = PropertyForm(request.POST, instance=property)
         if form.is_valid():
-            property = form.save(commit=False)
-            property.save()
+            property = form.save(commit=True)
             return redirect('property_detail', pk=property.pk)
     else:
         form = PropertyForm(instance=property)

@@ -29,8 +29,7 @@ def booking_edit(request, pk):
     if request.method == "POST":
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
-            booking = form.save(commit=False)
-            booking.save()
+            booking = form.save(commit=True)
             return redirect('booking_detail', pk=booking.pk)
     else:
         form = BookingForm(instance=booking)
