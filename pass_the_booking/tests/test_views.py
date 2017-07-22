@@ -51,3 +51,11 @@ class ViewingFormsTests(WebTest):
     def test_client_form_displayed(self):
         page = self.app.get('/clients/new/')
         self.assertEqual(len(page.forms), 1)
+
+    def test_property_form_displayed(self):
+        page = self.app.get('/properties/new/')
+        self.assertEqual(len(page.forms), 1)
+
+    def test_booking_form_displayed(self):
+        page = self.app.get('/bookings/new/')
+        self.assertEqual(len(page.forms), 1)
