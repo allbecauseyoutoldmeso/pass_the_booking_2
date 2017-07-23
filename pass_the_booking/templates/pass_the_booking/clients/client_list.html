@@ -10,6 +10,8 @@
   </div>
 {% endfor %}
 
-<a href='{% url 'client_new' %}'>add new client</a>
+{% if user.is_authenticated %}
+  <a href='{% url 'client_new' %}'>add new client</a>
+{% endif %}
 
 {% endblock %}
