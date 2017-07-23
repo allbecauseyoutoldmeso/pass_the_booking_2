@@ -17,10 +17,10 @@
   and visit:   
   ***http://127.0.0.1:8000/***
 
-### About my code:
+### About my app:
+* Only logged in users can add or edit clients, properties and bookings.  To sign up and log in click the 'Sign up' link at the top any of the view.
 * For each model there is a list template, a detail template, and a form template.
 * I have linked these templates up in a way that I hope is easily navigable.
-* Only logged in users can edit the database.  To sign up and log in click the 'Sign up' link at the top any of the view.
 * Constraints:        
   Bookings can only be registered if all the dates between the selected checkin and checkout are available.       
   Bookings can only be registered if the checkin date is after today.     
