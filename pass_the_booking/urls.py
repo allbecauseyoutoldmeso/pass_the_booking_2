@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^bookings/$', views.booking_list, name='booking_list'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
-
+    url(r'^signup/$', views.signup, name='signup'),
 ]
