@@ -22,9 +22,7 @@
 * Constraints:        
   Bookings can only be registered if all the dates between the selected checkin and checkout are available.       
   Bookings can only be registered if the checkin date is after today.     
-  Bookings can only be registered if the checkin date is earlier than the checkout date.   
-* Invalid dates are un-selectable on the calendar selectors for checkin and checkout.          
-
+  Bookings can only be registered if the checkin date is earlier than the checkout date.         
 
 ### Original Challenge:
 
