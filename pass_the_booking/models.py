@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError, NON_FIELD_ERRORS
 class Client(models.Model):
 
     name = models.CharField(max_length=200)
-    email = models.EmailField(max_length=254, unique = True)
+    email = models.EmailField(max_length=254)
     dob = models.DateField()
     telephone = models.CharField(max_length=200)
 

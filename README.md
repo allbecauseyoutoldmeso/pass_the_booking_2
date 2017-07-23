@@ -11,15 +11,11 @@
 
 
 * Constraints:        
-  Clients can only be registered if they have a unique email address.    
   Bookings can only be registered if all the nights between the selected checkin and checkout are available.       
   Bookings can only be registered if the checkin date is after today.     
   Bookings can only be registered if the checkin date is earlier than the checkout date.   
   Error messages appear in the browser for all of the above.  Moreover invalid dates are unselectable on the calendar selectors for checkin and checkout.          
 
-* To see test coverage run:  
-  ```coverage run manage.py test```   
-  ```coverage report```
 
 [11:51]
 Pls use this check list before sending your tech test to Richard. Tests with no Read me or Tests *will no be* reviewed.

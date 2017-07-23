@@ -1,0 +1,11 @@
+[
+  {
+    "model": "pass_the_booking.client",
+    "pk": 1,
+    "fields": {
+      "name": "John Lennon",
+      "email": "john@beatles.com",
+      "dob": "1940-10-09"
+    }
+  }
+]
