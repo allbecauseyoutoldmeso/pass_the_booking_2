@@ -1,5 +1,8 @@
-* Navigate into this directory.
-* Run:        
+## Pass the Booking
+
+### Instructions:
+
+* To get set up, navigate into this directory and run:        
   ```source myvenv/bin/acvitate```        
   ```pip install -r requirements.txt```
 
@@ -14,65 +17,89 @@
   and visit:   
   ***http://127.0.0.1:8000/***
 
-
+### About my code:
+* For each model there is a list template, a detail template, and a form template.
+* I have linked these templates up in a way that I hope is easily navigable.
+* Only logged in users can edit the database.  To sign up and log in click the 'Sign up' link at the top any of the view.
 * Constraints:        
-  Bookings can only be registered if all the nights between the selected checkin and checkout are available.       
+  Bookings can only be registered if all the dates between the selected checkin and checkout are available.       
   Bookings can only be registered if the checkin date is after today.     
   Bookings can only be registered if the checkin date is earlier than the checkout date.   
-  Error messages appear in the browser for all of the above.  Moreover invalid dates are unselectable on the calendar selectors for checkin and checkout.          
+* Invalid dates are un-selectable on the calendar selectors for checkin and checkout.          
 
 
-[11:51]
-Pls use this check list before sending your tech test to Richard. Tests with no Read me or Tests *will no be* reviewed.
-https://github.com/makersacademy/jobhunters/blob/master/tech_tests_how_to_succeed.md
+### Original Challenge:
 
+Premise        
 
-new messages
-Lily Uzunova
-[5:09 PM]
-hey @allbecauseyoutoldmeso , update on PTK:
-- Deadline confirmed for *end of Sunday this week*. Pls send your answers to Richard directly (Richard Kirsch <*richard@passthekeys.co.uk*>) with me in cc (*lily@makersacademy.com*)
-- Don’t forget to test, write Read me & comments
-- In your email pls include *link to your Github repo, plus any additional comments they think would be helpful*
-- You will receive an email from Richard with feedback on your test on Monday next week
-- Only the candidates with the best tech answers will be invited for f2f interviews
-- I will share the interview slots for Tue / Wed next week when I receive them tomorrow
-- I will be OOO Friday am till Monday pm so I will not be on Slack / Email. Let me know if you have any questions for me ahead of Friday
+The goal is to make a simple version of our own core tech product, which is a web app used
+by the company to manage our workload.
+Call the project PassTheBooking and upload to your Github account.         
 
-- Write this down as Slack will eat it!
+App Overview            
 
-- If you think you will not be able to submit the test on time pls let me know before lunch time tomorrow
+Use Django, and a little Bootstrap on the front-end. The focus of the test is to demonstrate
+how well you can wire together the app, not on a beautiful crisp design. There is lots to do,
+so lean on Django’s default settings, and its time-saving features such as generic views and
+forms if you can. For the database, PostgreSQL works much better than MySQL, but it is
+probably best to save extra time by using SQLite.
+Django is a Model-View-Controller web framework. Confusingly, Django calls its controllers
+‘views’, and its views ‘templates’. Its real strength is mapping database tables to python
+objects in the models, passing them into a view which is assigned to a URL, and then
+depicting the information in the template. The work below focuses on this core practice.     
 
-Good luck! :slightly_smiling_face:
+Models       
 
+The app should have the following models:     
 
+Client – holding information about the client’s personal details.     
 
------ Today July 20th, 2017 -----
-Lily Uzunova
-[2:01 PM]
-@allbecauseyoutoldmeso , next week slots for PTK interviews (depending on how many devs go though to next stage):
+Property – holding information about property details, e.g. address, number of bedrooms,
+etc. A property must be connected to a client, and a client may have many properties.    
 
-* Tue 11-1pm
-* Tue 1.30-3.30pm
-* Tue 4-6pm
-* Wed 11-1pm
+Booking – holding information about the reservation, e.g. date of check-in, check-out, guest
+information, etc. A booking must be connected to a property, and a property may have
+many bookings.
 
-The format will be:
-a) A chat about their completed test (15 mins)
-b) Live coding challenge. Basically a small extension to the work they will have already done. (45 mins)
-c) Joint interview with Alex and Richard. (30 mins)
-(+ 30 mins leeway room left over)
+[User – Django comes complete with an existing User model, used for authentication, which
+you should use instead of trying to re-invent the wheel.]   
 
-You will hear on Monday whether you’ve made it to the next stage (richard will email you directly)
+Interface     
 
+The app should have a homepage, giving the user any useful overview information you can
+think of. Beyond that we should be able to access the rest of our pages, which may be
+through a standard menu bar or any other method of your devising. However, I recommend
+fleshing-out the homepage last.
+Most importantly, there must be pages for the records of each of the models.
+For example, /bookings/4 should be a page displaying the information associated with a
+booking, whose id is 4.
+If you have the time, also try to develop your own form page for each of the models. For
+example, /bookings/4/edit would be a page with a form allowing the user to edit that
+booking record.
+Don’t spend any time customizing the Django admin interface. The point of the above work
+is to make our own interface through which real users will interact with the app – only the
+devs will ever go back there!        
 
-Lily Uzunova [5:21 PM]
-@allbecauseyoutoldmeso
+Data       
 
+Please write code (I recommend putting it in a file of its own) that will automatically
+populate data. This will help you develop, and help me assess your work.
+For example, imagine we had only a single model called Client, with a single field ‘name’.
+A data-generating file might look like this:    
 
-[5:21]
-Last update of the day (PTK). Pls write this down:
+```
+from .models import Client
+names = [‘Alice’,’Ben’,’Chloe’,’Donald’]     
+def gen_clients(names)       
+for e in names:       
+client = Client.objects.create(name=e)      
+print client   
+return   
+```   
 
-- The conversation with Alex and I will be a character interview, which is a pretty standard format we do for all potential joiners - motivation, attitude, ambition, etc.
-
-- Address is Techhub, 20 Ropemaker Street, EC2Y 9AR. Call Richard if any issues (07545 886523)
+Bonus Points
+- Tests
+- A login / logout page
+- Develop pages with tables displaying all the objects for each model
+- Use a requirements file for your packages
+- Deploy the app!
