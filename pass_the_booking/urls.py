@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', views.home_page, name='home_page'),
@@ -18,5 +19,7 @@ urlpatterns = [
     url(r'^bookings/(?P<pk>\d+)/edit/$', views.booking_edit, name='booking_edit'),
     url(r'^bookings/(?P<pk>\d+)/delete/$', views.booking_delete, name='booking_delete'),
     url(r'^bookings/$', views.booking_list, name='booking_list'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
 
 ]
