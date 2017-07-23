@@ -20,7 +20,7 @@
 * For each model there is a list page, a detail page, and a form page.
 * I have linked these pages up in a way that I hope is easily navigable.
 * Constraints:        
-  Bookings can only be registered if all the dates between the selected checkin and checkout are available.       
+  Bookings can only be registered if all the dates between the selected checkin and checkout are available for the chosen property.       
   Bookings can only be registered if the checkin date is after today.     
   Bookings can only be registered if the checkin date is earlier than the checkout date.         
 
