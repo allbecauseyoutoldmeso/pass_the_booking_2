@@ -2,7 +2,7 @@
 
 ### Instructions:
 
-* To get set up, navigate into this directory and run:        
+* To get set up, clone and navigate into this directory, and then run:        
   ```source myvenv/bin/acvitate```        
   ```pip install -r requirements.txt```
 
