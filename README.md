@@ -9,10 +9,8 @@
 * To run my tests:  
   ```./manage.py test```
 
-* To auto populate data:     
-  ```python manage.py loaddata autopopulate.json```
-
-* To run app locally:     
+* To auto populate data and run app locally:     
+  ```python manage.py loaddata autopopulate.json```   
   ```python manage.py runserver```   
   and visit:   
   ***http://127.0.0.1:8000/***
