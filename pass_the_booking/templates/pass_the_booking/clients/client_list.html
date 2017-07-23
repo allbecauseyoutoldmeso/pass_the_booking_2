@@ -2,13 +2,17 @@
 
 {% block content %}
 
-<p>Select a client to see their details or add properties.</p>
+<div class='main'>
 
-{% for client in clients %}
-  <div>
-    <p><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></p>
-  </div>
-{% endfor %}
+  <p>Select a client to see their details or add properties.</p>
+
+  {% for client in clients %}
+    <div>
+      <p><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></p>
+    </div>
+  {% endfor %}
+
+</div>
 
 <div class=bottom-navbar>
   {% if user.is_authenticated %}

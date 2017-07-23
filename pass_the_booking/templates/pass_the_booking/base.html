@@ -14,7 +14,7 @@
   <body>
 
     <div class='navbar'>
-      <p>Pass the Booking</p>
+      <p class='title'>Pass the Booking</p>
       <p>
         <a href="{% url 'home_page' %}">Home /</a>
         {% if user.is_authenticated %}
@@ -25,8 +25,6 @@
       </p>
     </div>
 
-    <div class='main'>
-
       {% block content %}
       {% endblock %}
 
@@ -35,8 +33,6 @@
         <p>{{ message }}</p>
         {% endfor %}
       {% endif %}
-
-    </div>
 
   </body>
 

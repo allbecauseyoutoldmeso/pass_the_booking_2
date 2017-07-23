@@ -2,11 +2,16 @@
 
 {% block content %}
 
+<div class='main'>
+
+<p>Select a property to see details or add a booking.</p>
+
 {% for property in properties %}
   <div>
     <p><a href="{% url 'property_detail' pk=property.pk %}">{{ property.address }}</a></p>
   </div>
 {% endfor %}
 
+</div>
 
 {% endblock %}

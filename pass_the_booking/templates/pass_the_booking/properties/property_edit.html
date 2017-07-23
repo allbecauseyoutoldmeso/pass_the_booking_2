@@ -2,11 +2,15 @@
 
 {% block content %}
 
-   <p>host: {{ client.name }}</p>
+  <div class='main'>
+
+    <p class='subtitle'>Property details:</p>
 
     <form method='post'>{% csrf_token %}
-        {{ form.as_p }}
-        <button type='submit'>save</button>
+      {{ form.as_p }}
+      <button class='booking-button' type='submit'>Save</button>
     </form>
+
+  </div>
 
 {% endblock %}

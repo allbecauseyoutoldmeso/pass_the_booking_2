@@ -88,7 +88,7 @@
     "pk": 5,
     "fields": {
       "client": 4,
-      "address": "Yellow Submarine, Underwater, NW12 WET",
+      "address": "Yellow Submarine, Underwater, NW12 YLW",
       "price": 99,
       "bedrooms": 4,
       "internet": "False"
