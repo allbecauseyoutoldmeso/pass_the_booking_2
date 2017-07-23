@@ -2,8 +2,13 @@
 * Run:        
   ```source myvenv/bin/acvitate```        
   ```pip install -r requirements.txt```
+
 * To run my tests:  
   ```./manage.py test```
+
+* To auto populate data:     
+  ```python manage.py loaddata autopopulate.json```
+
 * To run app locally:     
   ```python manage.py runserver```   
   and visit:   

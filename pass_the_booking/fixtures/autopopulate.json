@@ -5,7 +5,159 @@
     "fields": {
       "name": "John Lennon",
       "email": "john@beatles.com",
-      "dob": "1940-10-09"
+      "dob": "1940-10-09",
+      "telephone": "01234123123"
+    }
+  },
+  {
+    "model": "pass_the_booking.client",
+    "pk": 2,
+    "fields": {
+      "name": "Paul McCartney",
+      "email": "paul@beatles.com",
+      "dob": "1942-06-18",
+      "telephone": "12345234234"
+    }
+  },
+  {
+    "model": "pass_the_booking.client",
+    "pk": 3,
+    "fields": {
+      "name": "Ringo Star",
+      "email": "ringo@beatles.com",
+      "dob": "1940-07-07",
+      "telephone": "23456345345"
+    }
+  },
+  {
+    "model": "pass_the_booking.client",
+    "pk": 4,
+    "fields": {
+      "name": "George Harrison",
+      "email": "ringo@beatles.com",
+      "dob": "1943-02-25",
+      "telephone": "34567456456"
+    }
+  },
+  {
+    "model": "pass_the_booking.property",
+    "pk": 1,
+    "fields": {
+      "client": 1,
+      "address": "3 Abbey Road, London, NW8 9AY",
+      "price": 125,
+      "bedrooms": 4,
+      "internet": "True"
+    }
+  },
+  {
+    "model": "pass_the_booking.property",
+    "pk": 2,
+    "fields": {
+      "client": 1,
+      "address": "5 Penny Lane, London, N5 9EY",
+      "price": 50,
+      "bedrooms": 3,
+      "internet": "True"
+    }
+  },
+  {
+    "model": "pass_the_booking.property",
+    "pk": 3,
+    "fields": {
+      "client": 2,
+      "address": "123 Langthorne Road, E11 4HS",
+      "price": 20,
+      "bedrooms": 2,
+      "internet": "False"
+    }
+  },
+  {
+    "model": "pass_the_booking.property",
+    "pk": 4,
+    "fields": {
+      "client": 3,
+      "address": "10 Sergeant Pepper Place, London, W12 8EP",
+      "price": 50,
+      "bedrooms": 3,
+      "internet": "True"
+    }
+  },
+  {
+    "model": "pass_the_booking.property",
+    "pk": 5,
+    "fields": {
+      "client": 4,
+      "address": "Yellow Submarine, Underwater, NW12 WET",
+      "price": 99,
+      "bedrooms": 4,
+      "internet": "False"
+    }
+  },
+  {
+    "model": "pass_the_booking.booking",
+    "pk": 1,
+    "fields": {
+      "property": 1,
+      "guest_name": "Kate Gleeson",
+      "guest_email": "kate@kate.com",
+      "check_in": "2017-11-02",
+      "check_out": "2017-11-04"
+    }
+  },
+  {
+    "model": "pass_the_booking.booking",
+    "pk": 2,
+    "fields": {
+      "property": 1,
+      "guest_name": "John Smith",
+      "guest_email": "john@smith.com",
+      "check_in": "2017-12-10",
+      "check_out": "2017-12-26"
+    }
+  },
+  {
+    "model": "pass_the_booking.booking",
+    "pk": 3,
+    "fields": {
+      "property": 2,
+      "guest_name": "Betty Jones",
+      "guest_email": "betty@jones.com",
+      "check_in": "2018-01-10",
+      "check_out": "2018-06-10"
+    }
+  },
+  {
+    "model": "pass_the_booking.booking",
+    "pk": 4,
+    "fields": {
+      "property": 3,
+      "guest_name": "Tony Stark",
+      "guest_email": "tony@avengers.com",
+      "check_in": "2018-02-12",
+      "check_out": "2018-02-24"
+    }
+  },
+  {
+    "model": "pass_the_booking.booking",
+    "pk": 5,
+    "fields": {
+      "property": 4,
+      "guest_name": "Bruce Banner",
+      "guest_email": "bruce@avengers.com",
+      "check_in": "2017-08-01",
+      "check_out": "2017-08-30"
+    }
+  },
+  {
+    "model": "pass_the_booking.booking",
+    "pk": 6,
+    "fields": {
+      "property": 5,
+      "guest_name": "Steve Rogers",
+      "guest_email": "steve@avengers.com",
+      "check_in": "2017-07-04",
+      "check_out": "2017-08-04"
     }
   }
 ]

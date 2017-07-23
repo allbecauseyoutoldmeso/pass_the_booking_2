@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<p>click on a client to see their details, or to add client properties.</p>
+<p>Select a client to see their details or add properties.</p>
 
 {% for client in clients %}
   <div>
@@ -10,8 +10,10 @@
   </div>
 {% endfor %}
 
-{% if user.is_authenticated %}
-  <a href='{% url 'client_new' %}'>add new client</a>
-{% endif %}
+<div class=bottom-navbar>
+  {% if user.is_authenticated %}
+    <a href='{% url 'client_new' %}'>Add new client</a>
+  {% endif %}
+</div>
 
 {% endblock %}

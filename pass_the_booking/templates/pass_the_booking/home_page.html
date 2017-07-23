@@ -9,20 +9,28 @@
   </head>
 
   <body>
-    <p>welcome to pass the booking</p>
+
+    <div class='navbar'>
+
+    <p>Welcome to Pass the Booking</p>
+
     <p>
-      <a href="{% url 'home_page' %}">home page</a>
       {% if user.is_authenticated %}
-        <a href='{% url 'logout' %}'> log out</a>
+        <a href='{% url 'logout' %}'> Log out</a>
       {% else %}
-        <a href='{% url 'login' %}'> log in</a> or <a href='{% url 'signup' %}'> sign up</a>
+        <a href='{% url 'login' %}'> Log in</a> / <a href='{% url 'signup' %}'>Sign up</a>
       {% endif %}
     </p>
-    <p><a href="{% url 'client_list' %}">all clients</a></p>
-    <p>click here to see all existing clients, and to add properties and bookings.</p>
-    <p><a href="{% url 'property_list' %}">all properties</a></p>
-    <p>click here to see all existing properties, and to add bookings.</p>
-    <p><a href="{% url 'booking_list' %}">all bookings</a></p>
-    <p>click here to see all existing bookings.</p>
+
+    </div>
+
+    <div class='main'>
+
+      <p><a href="{% url 'client_list' %}">All clients</a></p>
+      <p><a href="{% url 'property_list' %}">All properties</a></p>
+      <p><a href="{% url 'booking_list' %}">All bookings</a></p>
+
+    </div>
+
   </body>
 </html>
