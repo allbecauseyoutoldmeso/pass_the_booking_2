@@ -8,7 +8,7 @@ class ViewTests(TestCase):
     def test_homepage(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'welcome to pass the booking')
+        self.assertContains(response, 'Welcome to Pass the Booking')
 
     def test_client_list(self):
         Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
@@ -45,7 +45,7 @@ class ViewTests(TestCase):
         Booking.objects.create(property = langthorne_road, check_in = '2017-10-12', check_out = '2017-10-14', guest_name = 'sally', guest_email = 'sally@sally.com')
         response = self.client.get('/bookings/1/')
         self.assertContains(response, '123 langthorne road')
-        self.assertContains(response, 'guest: sally')
+        self.assertContains(response, 'Guest: sally')
 
 class AddingNewObjectTests(WebTest):
 

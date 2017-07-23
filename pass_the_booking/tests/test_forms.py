@@ -95,7 +95,7 @@ class BookingFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors, {
-            'check_out': ['check out cannot be earlier than check in.'],
+            'check_out': ['Check out cannot be earlier than check in.'],
         })
 
     def test_error_if_check_in_before_today(self):
@@ -107,5 +107,5 @@ class BookingFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors, {
-            'check_in': ['check in cannot be earlier than today.'],
+            'check_in': ['Check in cannot be earlier than today.'],
         })
