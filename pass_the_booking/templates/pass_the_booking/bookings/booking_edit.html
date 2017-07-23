@@ -2,23 +2,37 @@
 
 {% block content %}
 
-   <p>booking details for {{ property.address }}</p>
+  <div class='main'>
 
-   <form method='post'>{% csrf_token %}
-     {{ form.guest_name.errors }}
-     <label for="{{ form.guest_name.id_for_label }}">guest name:</label>
-     {{ form.guest_name }}
-     {{ form.guest_email.errors }}
-     <label for="{{ form.guest_email.id_for_label }}">guest email:</label>
-     {{ form.guest_email }}
-     {{ form.check_in.errors }}
-     <label for="{{ form.check_in.id_for_label }}">check in date:</label>
-     {{ form.check_in }}
-     {{ form.check_out.errors }}
-     <label for="{{ form.check_out.id_for_label }}">check out date:</label>
-     {{ form.check_out }}
-     <button type='submit'>save</button>
-   </form>
+    <p>Booking details:</p>
+
+    <form method='post'>{% csrf_token %}
+      <p>
+        {{ form.guest_name.errors }}
+        <label for="{{ form.guest_name.id_for_label }}">Guest name:</label>
+        {{ form.guest_name }}
+      <p>
+      </p>
+        {{ form.guest_email.errors }}
+        <label for="{{ form.guest_email.id_for_label }}">Guest email:</label>
+        {{ form.guest_email }}
+      <p>
+      </p>
+        {{ form.check_in.errors }}
+        <label for="{{ form.check_in.id_for_label }}">Check in date:</label>
+        {{ form.check_in }}
+      <p>
+      </p>
+        {{ form.check_out.errors }}
+        <label for="{{ form.check_out.id_for_label }}">Check out date:</label>
+        {{ form.check_out }}
+      <p>
+      </p>
+       <button class='booking-button' type='submit'>Save</button>
+      <p>
+     </form>
+
+  </div>
 
    <script>
     $(document).ready(function() {

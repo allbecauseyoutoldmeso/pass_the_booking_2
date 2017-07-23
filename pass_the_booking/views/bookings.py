@@ -20,7 +20,7 @@ def booking_new(request, pk):
             booking.property = property
             for date in booking.all_dates():
                 if date in property.unavailable_dates():
-                    messages.add_message(request, messages.INFO, 'some of the dates you selected are not available.')
+                    messages.add_message(request, messages.INFO, 'Some of the dates you selected are not available.')
                     return redirect('booking_new', pk=property.pk)
             booking.save()
             return redirect('booking_detail', pk=booking.pk)

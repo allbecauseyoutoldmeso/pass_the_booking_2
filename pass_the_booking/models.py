@@ -48,6 +48,6 @@ class Booking(models.Model):
     def clean(self):
         if self.check_in is not None and self.check_out is not None:
             if self.check_in > self.check_out:
-                raise ValidationError({'check_out': ('check out cannot be earlier than check in.')})
+                raise ValidationError({'check_out': ('Check out cannot be earlier than check in.')})
             if self.check_in < datetime.date.today():
-                raise ValidationError({'check_in': ('check in cannot be earlier than today.')})
+                raise ValidationError({'check_in': ('Check in cannot be earlier than today.')})

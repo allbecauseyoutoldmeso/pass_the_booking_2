@@ -1,11 +1,17 @@
 {% extends 'pass_the_booking/base.html' %}
 
 {% block content %}
-  <p>sign up</p>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">sign up</button>
-  </form>
+
+  <div class='main'>
+
+    <p class='subtitle'>Sign Up:</p>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class='booking-button' type="submit">Sign up</button>
+    </form>
+
+  </div>
+
 {% endblock %}
-  

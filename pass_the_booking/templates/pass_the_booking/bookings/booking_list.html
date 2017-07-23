@@ -2,10 +2,16 @@
 
 {% block content %}
 
+<div class='main'>
+
+<p class='subtitle'>Select a booking to see details.</p>
+
 {% for booking in bookings %}
   <div>
     <p><a href="{% url 'booking_detail' pk=booking.pk %}">{{ booking.guest_name }}'s booking for {{ booking.property.address }}</a></p>
   </div>
 {% endfor %}
+
+</div>
 
 {% endblock %}

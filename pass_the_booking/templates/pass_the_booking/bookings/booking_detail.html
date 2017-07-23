@@ -2,19 +2,21 @@
 
 {% block content %}
 
-  <div>
-    <p>property: <a href="{% url 'property_detail' pk=booking.property.pk %}">{{ booking.property.address }}</a></p>
-    <p>host: <a href="{% url 'client_detail' pk=booking.property.client.pk %}">{{ booking.property.client.name }}</a></p>
-    <p>guest: {{ booking.guest_name }}</p>
+  <p class='subtitle'>Booking details:</p>
+
+  <div class='main'>
+    <p>Property: <a href="{% url 'property_detail' pk=booking.property.pk %}">{{ booking.property.address }}</a></p>
+    <p>Host: <a href="{% url 'client_detail' pk=booking.property.client.pk %}">{{ booking.property.client.name }}</a></p>
+    <p>Guest: {{ booking.guest_name }}</p>
     <p>{{ booking.guest_name }}'s email: {{ booking.guest_email }}</p>
-    <p>check in: {{ booking.check_in }}</p>
-    <p>check out: {{ booking.check_out }}</p>
-    <p>total price: £{{ booking.total_price }} </p>
+    <p>Check in: {{ booking.check_in }}</p>
+    <p>Check out: {{ booking.check_out }}</p>
+    <p>Total price: £{{ booking.total_price }} </p>
   </div>
 
-  <div>
-    <p><a href="{% url 'booking_edit' pk=booking.pk %}">edit booking details</a></p>
-    <p><a href="{% url 'booking_delete' pk=booking.pk %}">delete this booking from database</a></p>
+  <div class='bottom-navbar'>
+    <p><a href="{% url 'booking_edit' pk=booking.pk %}">Edit booking details</a></p>
+    <p><a href="{% url 'booking_delete' pk=booking.pk %}">Delete this booking from database</a></p>
   </div>
 
 {% endblock %}
