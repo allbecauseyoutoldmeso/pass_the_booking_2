@@ -6,10 +6,18 @@
 
     <p class='subtitle'>Sign Up:</p>
 
-    <form method="post">
+    <form method='post'>
       {% csrf_token %}
-      {{ form.as_p }}
-      <button class='booking-button' type="submit">Sign up</button>
+      {% for field in form %}
+      <p>
+        {{ field.errors }}
+        {{ field.label_tag }}
+        {{ field }}
+      </p>
+      {% endfor %}
+      <p>
+        <button type='submit' class='booking-button'>Sign up</button>
+      </p>
     </form>
 
   </div>

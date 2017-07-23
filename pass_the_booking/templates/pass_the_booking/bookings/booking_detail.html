@@ -15,8 +15,10 @@
   </div>
 
   <div class='bottom-navbar'>
-    <p><a href="{% url 'booking_edit' pk=booking.pk %}">Edit booking details</a></p>
-    <p><a href="{% url 'booking_delete' pk=booking.pk %}">Delete this booking from database</a></p>
+    {% if user.is_authenticated %}
+      <p><a href="{% url 'booking_edit' pk=booking.pk %}">Edit booking details</a></p>
+      <p><a href="{% url 'booking_delete' pk=booking.pk %}">Delete this booking from database</a></p>
+    {% endif %}
   </div>
 
 {% endblock %}

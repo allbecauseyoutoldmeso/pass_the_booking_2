@@ -22,9 +22,11 @@
   </div>
 
   <div class='bottom-navbar'>
-    <p><a href="{% url 'property_new' pk=client.pk %}">Add a property for this client</a></p>
-    <p><a href="{% url 'client_edit' pk=client.pk %}">Edit client details</a></p>
-    <p><a href="{% url 'client_delete' pk=client.pk %}">Delete this client from database</a></p>
+    {% if user.is_authenticated %}
+      <p><a href="{% url 'property_new' pk=client.pk %}">Add a property for this client</a></p>
+      <p><a href="{% url 'client_edit' pk=client.pk %}">Edit client details</a></p>
+      <p><a href="{% url 'client_delete' pk=client.pk %}">Delete this client from database</a></p>
+    {% endif %}
   </div>
 
 {% endblock %}

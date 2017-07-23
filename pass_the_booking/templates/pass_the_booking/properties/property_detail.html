@@ -23,9 +23,11 @@
   </div>
 
   <div class='bottom-navbar'>
+    {% if user.is_authenticated %}
     <p><a href="{% url 'booking_new' pk=property.pk %}">Add a booking for this property</a></p>
     <p><a href="{% url 'property_edit' pk=property.pk %}">Edit property details</a></p>
     <p><a href="{% url 'property_delete' pk=property.pk %}">Delete this property from database</a></p>
+    {% endif %}
   </div>
 
 {% endblock %}
