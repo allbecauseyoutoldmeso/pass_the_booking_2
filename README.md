@@ -3,7 +3,7 @@
 ### Instructions:
 
 * To get set up, clone and navigate into this directory, and then run:        
-  ```source myvenv/bin/acvitate```        
+  ```source myvenv/bin/activate```        
   ```pip install -r requirements.txt```
 
 * To run my tests:  
