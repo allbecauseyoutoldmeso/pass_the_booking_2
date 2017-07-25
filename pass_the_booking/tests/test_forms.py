@@ -31,16 +31,6 @@ class ClientFormTest(TestCase):
 
 class BookingFormTest(TestCase):
 
-    def test_blank_data(self):
-        form = BookingForm({})
-        self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors, {
-            'guest_name': ['This field is required.'],
-            'guest_email': ['This field is required.'],
-            'check_in': ['This field is required.'],
-            'check_out': ['This field is required.'],
-        })
-
     def test_error_if_check_in_before_check_out(self):
         form = BookingForm({
             'guest_name': 'sally gleeson',

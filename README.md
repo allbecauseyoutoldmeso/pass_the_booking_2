@@ -8,7 +8,7 @@
   ```python manage.py migrate```
 
 * To run my tests:  
-  ```./manage.py test```
+  ```python manage.py test```
 
 * To auto populate data and run app locally:     
   ```python manage.py loaddata autopopulate.json```   
