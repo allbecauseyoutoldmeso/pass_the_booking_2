@@ -14,6 +14,10 @@ class ClientTestCase(TestCase):
         self.assertEqual(kate.email, 'kate@kate.com')
         self.assertEqual(kate.telephone, '01234123123')
 
+    def test_string_method(self):
+        kate = Client.objects.get(name='kate gleeson')
+        self.assertEqual(kate.__str__(), 'kate gleeson')
+
 class PropertyTestCase(TestCase):
     def setUp(self):
         kate = Client.objects.create(name='kate gleeson', dob='1981-09-13', email='kate@kate.com', telephone='01234123123')
