@@ -15,6 +15,7 @@ class ClientTestCase(TestCase):
         self.assertEqual(kate.telephone, '01234123123')
 
     def test_string_method(self):
+        """Method returns useful label for object"""
         kate = Client.objects.get(name='kate gleeson')
         self.assertEqual(kate.__str__(), 'kate gleeson')
 
@@ -37,6 +38,10 @@ class PropertyTestCase(TestCase):
         langthorne_road = Property.objects.get(address='123 langthorne road')
         self.assertEqual(langthorne_road.unavailable_dates(), ['20171012', '20171013'])
 
+    def test_string_method(self):
+        """Method returns useful label for object"""
+        langthorne_road = Property.objects.get(address='123 langthorne road')
+        self.assertEqual(langthorne_road.__str__(), '123 langthorne road')
 
 class BookingTestCase(TestCase):
     def setUp(self):
@@ -62,3 +67,8 @@ class BookingTestCase(TestCase):
         """method returns array of all nights guest is staying"""
         sally_booking = Booking.objects.get(pk=1)
         self.assertEqual(sally_booking.all_dates(), ['20171012', '20171013'])
+
+    def test_string_method(self):
+        """Method returns useful label for object"""
+        sally_booking = Booking.objects.get(pk=1)
+        self.assertEqual(sally_booking.__str__(), "sally's booking for 123 langthorne road")

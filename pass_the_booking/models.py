@@ -30,6 +30,9 @@ class Property(models.Model):
                 booked_dates.append(d.strftime('%Y%m%d'))
         return booked_dates
 
+    def __str__(self):
+        return self.address
+
 class Booking(models.Model):
 
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
@@ -54,3 +57,6 @@ class Booking(models.Model):
                 raise ValidationError({'check_out': ('Check out cannot be earlier than check in.')})
             if self.check_in < datetime.date.today():
                 raise ValidationError({'check_in': ('Check in cannot be earlier than today.')})
+
+    def __str__(self):
+        return "%s's booking for %s" % (self.guest_name, self.property.address)
