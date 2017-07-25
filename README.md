@@ -5,6 +5,7 @@
 * To get set up, clone and navigate into this directory, and then run:        
   ```source myvenv/bin/activate```        
   ```pip install -r requirements.txt```
+  ```python manage.py migrate```
 
 * To run my tests:  
   ```./manage.py test```
