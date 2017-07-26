@@ -1,6 +1,6 @@
 from ..models import Client
 from django.shortcuts import render, get_object_or_404, redirect
-from ..forms import ClientForm
+# from ..forms import ClientForm
 from django.views import View
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -16,9 +16,9 @@ class ClientUpdate(UpdateView):
     fields = ['name', 'email', 'dob', 'telephone']
     template_name = 'pass_the_booking/clients/client_edit.html'
 
-class ClientDelete(DeleteView):
-    model = Client
-    success_url = reverse_lazy('client_list')
+# class ClientDelete(DeleteView):
+#     model = Client
+#     success_url = reverse_lazy('client_list')
 
 class ClientListView(ListView):
     model = Client
