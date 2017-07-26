@@ -11,9 +11,18 @@ class BookingListView(ListView):
     model = Booking
     template_name = 'pass_the_booking/bookings/booking_list.html'
 
-def booking_list(request):
-    bookings = Booking.objects.order_by('property')
-    return render(request, 'pass_the_booking/bookings/booking_list.html', {'bookings': bookings })
+class BookingCreate(CreateView):
+    model = Booking
+    fields = ['property', 'guest_name', 'guest_email', 'check_in', 'check_out']
+    template_name = 'pass_the_booking/object_edit.html'
+
+class BookingUpdate(UpdateView):
+    model = Booking
+    fields = ['property', 'guest_name', 'guest_email', 'check_in', 'check_out']
+    template_name = 'pass_the_booking/object_edit.html'
+
+
+
 
 def booking_detail(request, pk):
     booking = get_object_or_404(Booking, pk=pk)

@@ -67,3 +67,6 @@ class Booking(models.Model):
 
     def __str__(self):
         return "%s's booking for %s" % (self.guest_name, self.property.address)
+
+    def get_absolute_url(self):
+        return reverse('booking_detail', kwargs={'pk': self.pk})
