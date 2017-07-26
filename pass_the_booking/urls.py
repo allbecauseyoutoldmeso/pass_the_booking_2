@@ -6,7 +6,7 @@ from .views import *
 urlpatterns = [
     url(r'^$', views.home_page, name='home_page'),
     url(r'^clients/$', ClientListView.as_view(), name='client_list'),
-    url(r'^clients/(?P<pk>\d+)/$', views.client_detail, name='client_detail'),
+    url(r'^clients/(?P<pk>\d+)/$', ClientDetailView.as_view(), name='client_detail'),
     url(r'^clients/new/$', ClientNewView.as_view(), name='client_new'),
     url(r'^clients/(?P<pk>\d+)/edit/$', views.client_edit, name='client_edit'),
     url(r'^clients/(?P<pk>\d+)/delete/$', views.client_delete, name='client_delete'),

@@ -9,6 +9,13 @@ class ClientListView(View):
         clients = Client.objects.order_by('name')
         return render(request, 'pass_the_booking/clients/client_list.html', {'clients': clients})
 
+class ClientDetailView(View):
+    def get(self, request, pk):
+        client = get_object_or_404(Client, pk=pk)
+        properties = client.property_set.all()
+        return render(request, 'pass_the_booking/clients/client_detail.html', {'client': client, 'properties': properties})
+
+
 def client_detail(request, pk):
     client = get_object_or_404(Client, pk=pk)
     properties = client.property_set.all()
