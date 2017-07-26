@@ -4,6 +4,7 @@ from ..forms import ClientForm, PropertyForm, BookingForm
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.views import View
 
 class PropertyListView(ListView):
     model = Property
@@ -14,35 +15,24 @@ class PropertyCreate(CreateView):
     fields = ['client', 'address', 'price', 'bedrooms', 'internet']
     template_name = 'pass_the_booking/properties/property_edit.html'
 
+class PropertyUpdate(UpdateView):
+    model = Property
+    fields = ['client', 'address', 'price', 'bedrooms', 'internet']
+    template_name = 'pass_the_booking/properties/property_edit.html'
+
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
     bookings = property.booking_set.all()
     return render(request, 'pass_the_booking/properties/property_detail.html', {'property': property, 'bookings': bookings })
 
-def property_new(request, pk):
-    client = get_object_or_404(Client, pk=pk)
-    if request.method == "POST":
-        form = PropertyForm(request.POST)
-        if form.is_valid():
-            property = form.save(commit=False)
-            property.client = client
-            property.save()
-            return redirect('property_detail', pk=property.pk)
-    else:
-        form = PropertyForm()
-    return render(request, 'pass_the_booking/properties/property_edit.html', { 'form': form, 'client': client })
+class PropertyDetailView(View):
+    def get(self, request, pk):
+        property = get_object_or_404(Property, pk=pk)
+        bookings = property.booking_set.all()
+        return render(request, 'pass_the_booking/properties/property_detail.html', {'property': property, 'bookings': bookings })
 
-def property_edit(request, pk):
-    property = get_object_or_404(Property, pk=pk)
-    client = property.client
-    if request.method == "POST":
-        form = PropertyForm(request.POST, instance=property)
-        if form.is_valid():
-            property = form.save(commit=True)
-            return redirect('property_detail', pk=property.pk)
-    else:
-        form = PropertyForm(instance=property)
-    return render(request, 'pass_the_booking/properties/property_edit.html', {'form': form, 'client': client })
+
+
 
 def property_delete(request, pk):
     property = get_object_or_404(Property, pk=pk)
