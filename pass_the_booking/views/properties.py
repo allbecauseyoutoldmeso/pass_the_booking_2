@@ -13,12 +13,12 @@ class PropertyListView(ListView):
 class PropertyCreate(CreateView):
     model = Property
     fields = ['client', 'address', 'price', 'bedrooms', 'internet']
-    template_name = 'pass_the_booking/properties/property_edit.html'
+    template_name = 'pass_the_booking/object_edit.html'
 
 class PropertyUpdate(UpdateView):
     model = Property
     fields = ['client', 'address', 'price', 'bedrooms', 'internet']
-    template_name = 'pass_the_booking/properties/property_edit.html'
+    template_name = 'pass_the_booking/object_edit.html'
 
 class PropertyDetailView(View):
     def get(self, request, pk):
@@ -30,11 +30,3 @@ class PropertyDelete(DeleteView):
     model = Property
     template_name = 'pass_the_booking/properties/property_confirm_delete.html'
     success_url = reverse_lazy('property_list')
-
-
-
-def property_delete(request, pk):
-    property = get_object_or_404(Property, pk=pk)
-    client = property.client
-    property.delete()
-    return redirect('client_detail', pk=client.pk)
