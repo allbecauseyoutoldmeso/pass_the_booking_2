@@ -20,17 +20,16 @@ class PropertyUpdate(UpdateView):
     fields = ['client', 'address', 'price', 'bedrooms', 'internet']
     template_name = 'pass_the_booking/properties/property_edit.html'
 
-def property_detail(request, pk):
-    property = get_object_or_404(Property, pk=pk)
-    bookings = property.booking_set.all()
-    return render(request, 'pass_the_booking/properties/property_detail.html', {'property': property, 'bookings': bookings })
-
 class PropertyDetailView(View):
     def get(self, request, pk):
         property = get_object_or_404(Property, pk=pk)
         bookings = property.booking_set.all()
         return render(request, 'pass_the_booking/properties/property_detail.html', {'property': property, 'bookings': bookings })
 
+class PropertyDelete(DeleteView):
+    model = Property
+    template_name = 'pass_the_booking/properties/property_confirm_delete.html'
+    success_url = reverse_lazy('property_list')
 
 
 
