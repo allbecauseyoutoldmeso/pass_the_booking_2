@@ -37,6 +37,9 @@ class Property(models.Model):
     def __str__(self):
         return self.address
 
+    def get_absolute_url(self):
+        return reverse('property_detail', kwargs={'pk': self.pk})
+
 class Booking(models.Model):
 
     property = models.ForeignKey(Property, on_delete=models.CASCADE)

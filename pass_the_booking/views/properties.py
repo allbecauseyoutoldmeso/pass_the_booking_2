@@ -9,9 +9,10 @@ class PropertyListView(ListView):
     model = Property
     template_name = 'pass_the_booking/properties/property_list.html'
 
-def property_list(request):
-    properties = Property.objects.order_by('client')
-    return render(request, 'pass_the_booking/properties/property_list.html', {'properties': properties })
+class PropertyCreate(CreateView):
+    model = Property
+    fields = ['client', 'address', 'price', 'bedrooms', 'internet']
+    template_name = 'pass_the_booking/properties/property_edit.html'
 
 def property_detail(request, pk):
     property = get_object_or_404(Property, pk=pk)
