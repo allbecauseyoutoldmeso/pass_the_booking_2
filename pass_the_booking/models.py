@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 from datetime import timedelta
 from django.core.exceptions import ValidationError, NON_FIELD_ERRORS
+from django.urls import reverse
 
 class Client(models.Model):
 
@@ -12,6 +13,9 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('client_detail', kwargs={'pk': self.pk})
 
 
 class Property(models.Model):
