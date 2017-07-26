@@ -8,14 +8,13 @@ from django.urls import reverse_lazy
 
 class ClientCreate(CreateView):
     model = Client
-    # fields = ['name', 'email', 'dob', 'telephone']
-    template_name = 'pass_the_booking/clients/client_edit.html'
+    template_name = 'pass_the_booking/object_edit.html'
     form_class = ClientForm
 
 class ClientUpdate(UpdateView):
     model = Client
-    fields = ['name', 'email', 'dob', 'telephone']
-    template_name = 'pass_the_booking/clients/client_edit.html'
+    template_name = 'pass_the_booking/object_edit.html'
+    form_class = ClientForm
 
 class ClientDelete(DeleteView):
     model = Client

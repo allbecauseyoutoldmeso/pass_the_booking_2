@@ -2,6 +2,10 @@ from ..models import Client, Property, Booking
 from django.shortcuts import render, get_object_or_404, redirect
 from ..forms import ClientForm, PropertyForm, BookingForm
 from django.contrib import messages
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views import View
 
 def booking_list(request):
     bookings = Booking.objects.order_by('property')
