@@ -28,5 +28,5 @@ class PropertyDetailView(View):
 
 class PropertyDelete(DeleteView):
     model = Property
-    template_name = 'pass_the_booking/properties/property_confirm_delete.html'
+    template_name = 'pass_the_booking/object_confirm_delete.html'
     success_url = reverse_lazy('property_list')

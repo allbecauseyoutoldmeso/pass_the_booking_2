@@ -18,7 +18,7 @@ class ClientUpdate(UpdateView):
 
 class ClientDelete(DeleteView):
     model = Client
-    template_name = 'pass_the_booking/clients/client_confirm_delete.html'
+    template_name = 'pass_the_booking/object_confirm_delete.html'
     success_url = reverse_lazy('client_list')
 
 class ClientListView(ListView):
