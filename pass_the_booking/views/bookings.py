@@ -13,7 +13,8 @@ class BookingListView(ListView):
 
 class BookingCreate(CreateView):
     model = Booking
-    fields = ['property', 'guest_name', 'guest_email', 'check_in', 'check_out']
+    # fields = ['property', 'guest_name', 'guest_email', 'check_in', 'check_out']
+    form_class = BookingForm
     template_name = 'pass_the_booking/object_edit.html'
 
 class BookingUpdate(UpdateView):

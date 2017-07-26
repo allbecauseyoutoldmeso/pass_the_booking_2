@@ -11,4 +11,37 @@
 
   </div>
 
+  <script>
+    $(function() {
+      $( ".datepicker" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "1920:2017",
+        dateFormat: "yy-mm-dd",
+        maxDate: 0
+      });
+    });
+  </script>
+
+  <script>
+     $(document).ready(function() {
+       $(function() {
+         $('.booking_datepicker').datepicker({
+           changeMonth: true,
+           changeYear: true,
+           minDate: 0,
+           dateFormat: "yy-mm-dd",
+           beforeShowDay: function(date) {
+             var disableddates = []
+             {% for x in property.unavailable_dates %}
+               disableddates.push(String({{x}}))
+             {% endfor %}
+             var string = jQuery.datepicker.formatDate('yymmdd', date);
+             return [ disableddates.indexOf(string) == -1 ]
+           }
+         })
+       })
+     })
+  </script>
+
 {% endblock %}
