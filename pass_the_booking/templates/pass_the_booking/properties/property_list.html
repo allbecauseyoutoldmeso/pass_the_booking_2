@@ -6,7 +6,7 @@
 
 <p class='subtitle'>Select a property to see details or add a booking.</p>
 
-{% for property in properties %}
+{% for property in object_list %}
   <div>
     <p><a href="{% url 'property_detail' pk=property.pk %}">{{ property.address }}</a></p>
   </div>
