@@ -26,6 +26,10 @@ class BookingDetailView(View):
         booking = get_object_or_404(Booking, pk=pk)
         return render(request, 'pass_the_booking/bookings/booking_detail.html', {'booking': booking })
 
+class BookingDelete(DeleteView):
+    model = Booking
+    template_name = 'pass_the_booking/object_confirm_delete.html'
+    success_url = reverse_lazy('booking_list')
 
 
 
