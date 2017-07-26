@@ -6,7 +6,7 @@
 
   <p class='subtitle'>Select a client to see their details or add properties.</p>
 
-  {% for client in clients %}
+  {% for client in object_list %}
     <div>
       <p><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></p>
     </div>
