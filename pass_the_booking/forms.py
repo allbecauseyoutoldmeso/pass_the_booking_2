@@ -26,4 +26,4 @@ class BookingForm(forms.ModelForm):
             'check_in': forms.DateInput(attrs={'class':'booking_datepicker'}),
             'check_out': forms.DateInput(attrs={'class':'booking_datepicker'}),
         }
-        fields = ('guest_name', 'guest_email', 'check_in', 'check_out',)
+        fields = ('property','guest_name', 'guest_email', 'check_in', 'check_out',)
