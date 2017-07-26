@@ -1,11 +1,11 @@
 from django.conf.urls import url
 from . import views
 from django.contrib.auth import views as auth_views
-
+from .views import *
 
 urlpatterns = [
     url(r'^$', views.home_page, name='home_page'),
-    url(r'^clients/$', views.client_list, name='client_list'),
+    url(r'^clients/$', ClientListView.as_view(), name='client_list'),
     url(r'^clients/(?P<pk>\d+)/$', views.client_detail, name='client_detail'),
     url(r'^clients/new/$', views.client_new, name='client_new'),
     url(r'^clients/(?P<pk>\d+)/edit/$', views.client_edit, name='client_edit'),

@@ -1,10 +1,12 @@
 from ..models import Client, Property, Booking
 from django.shortcuts import render, get_object_or_404, redirect
 from ..forms import ClientForm, PropertyForm, BookingForm
+from django.views import View
 
-def client_list(request):
-    clients = Client.objects.order_by('name')
-    return render(request, 'pass_the_booking/clients/client_list.html', {'clients': clients})
+class ClientListView(View):
+    def get(self, request):
+        clients = Client.objects.order_by('name')
+        return render(request, 'pass_the_booking/clients/client_list.html', {'clients': clients})
 
 def client_detail(request, pk):
     client = get_object_or_404(Client, pk=pk)
