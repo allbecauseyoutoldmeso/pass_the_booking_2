@@ -7,6 +7,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views import View
 
+class BookingListView(ListView):
+    model = Booking
+    template_name = 'pass_the_booking/bookings/booking_list.html'
+
 def booking_list(request):
     bookings = Booking.objects.order_by('property')
     return render(request, 'pass_the_booking/bookings/booking_list.html', {'bookings': bookings })
