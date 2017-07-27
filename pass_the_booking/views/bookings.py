@@ -1,6 +1,6 @@
 from ..models import Client, Property, Booking
 from django.shortcuts import render, get_object_or_404, redirect
-from ..forms import ClientForm, PropertyForm, BookingForm
+from ..forms import BookingForm
 from django.contrib import messages
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -30,11 +30,3 @@ class BookingDelete(DeleteView):
     model = Booking
     template_name = 'pass_the_booking/object_confirm_delete.html'
     success_url = reverse_lazy('booking_list')
-
-
-
-def booking_delete(request, pk):
-    booking = get_object_or_404(Booking, pk=pk)
-    property = booking.property
-    booking.delete()
-    return redirect('property_detail', pk=property.pk)

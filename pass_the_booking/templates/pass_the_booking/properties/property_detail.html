@@ -15,7 +15,7 @@
     <div>
       <p class='subtitle'>Bookings:</p>
       <p>(Select a booking to see details.)</p>
-        {% for booking in bookings %}
+        {% for booking in property.booking_set.all %}
           <p><a href="{% url 'booking_detail' pk=booking.pk %}">{{ booking.guest_name }} ({{ booking.check_in}}-{{ booking.check_out }})</a></p>
         {% endfor %}
     </div>

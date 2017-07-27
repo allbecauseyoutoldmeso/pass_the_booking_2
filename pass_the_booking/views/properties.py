@@ -1,7 +1,6 @@
 from ..models import Client, Property, Booking
 from django.shortcuts import render, get_object_or_404, redirect
-from ..forms import ClientForm, PropertyForm, BookingForm
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views import View
@@ -20,11 +19,16 @@ class PropertyUpdate(UpdateView):
     fields = ['client', 'address', 'price', 'bedrooms', 'internet']
     template_name = 'pass_the_booking/object_edit.html'
 
-class PropertyDetailView(View):
-    def get(self, request, pk):
-        property = get_object_or_404(Property, pk=pk)
-        bookings = property.booking_set.all()
-        return render(request, 'pass_the_booking/properties/property_detail.html', {'property': property, 'bookings': bookings })
+# class PropertyDetailView(View):
+#
+#     def get(self, request, pk):
+#         property = get_object_or_404(Property, pk=pk)
+#         return render(request, 'pass_the_booking/properties/property_detail.html', {'property': property})
+
+class PropertyDetaiView(DetailView):
+    model = Property
+    template_name = 'pass_the_booking/properties/property_detail.html'
+    context_object_name = 'property'
 
 class PropertyDelete(DeleteView):
     model = Property
